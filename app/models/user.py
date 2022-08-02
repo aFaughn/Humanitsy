@@ -10,6 +10,16 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    preferred_role = db.Column(db.String(8), nullable=False)
+    favorite_survivor = db.Column(db.String(30))
+    favorite_killer = db.Column(db.String(30))
+    hours = db.Column(db.Integer)
+
+    review_auditor = db.relationship('Review', foreign_keys='Review.auditor_id', back_populates='users', cascade='all, delete')
+    review_auditee = db.relationship('Review', foreign_keys='Review.auditee_id', back_populates='users', cascade='all, delete')
+    reactions = db.relationship('Reaction', back_populates='users', cascade='all, delete')
+    message_sender = db.relationship('Message', foreign_keys='Message.sender_id', back_populates='users', cascade='all, delete')
+    message_recipient = db.relationship('Message', foreign_keys='Message.recipient_id', back_populates='users', cascade='all, delete')
 
     @property
     def password(self):
@@ -26,5 +36,9 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'preferred_role': self.preferred_role,
+            'favorite_survivor': self.favorite_survivor,
+            'favorite_killer': self.favorite_killer,
+            'hours': self.hours
         }
