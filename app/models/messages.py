@@ -6,7 +6,7 @@ class Message(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     recipient_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    sender_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    sender_id = db.Column(db.Integer, db.ForeignKey('users.auditor_id'), nullable=False)
     body = db.Column(db.String(500))
     time_sent = db.Column(db.Time)
 

@@ -2,6 +2,11 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+# reviews = db.Table('reviews',
+#     db.Model.metadata,
+#     db.Column('auditor', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+#     db.Column('auditee', db.Integer, db.ForeignKey('users.id'), primary_key=True))
+
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -15,11 +20,7 @@ class User(db.Model, UserMixin):
     favorite_killer = db.Column(db.String(30))
     hours = db.Column(db.Integer)
 
-    review_auditor = db.relationship('Review', foreign_keys='Review.auditor_id', back_populates='users', cascade='all, delete')
-    review_auditee = db.relationship('Review', foreign_keys='Review.auditee_id', back_populates='users', cascade='all, delete')
     reactions = db.relationship('Reaction', back_populates='users', cascade='all, delete')
-    message_sender = db.relationship('Message', foreign_keys='Message.sender_id', back_populates='users', cascade='all, delete')
-    message_recipient = db.relationship('Message', foreign_keys='Message.recipient_id', back_populates='users', cascade='all, delete')
 
     @property
     def password(self):
