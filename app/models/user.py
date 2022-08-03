@@ -2,12 +2,6 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-# reviews = db.Table('reviews',
-#     db.Model.metadata,
-#     db.Column('auditor', db.Integer, db.ForeignKey('users.id'), primary_key=True),
-#     db.Column('auditee', db.Integer, db.ForeignKey('users.id'), primary_key=True))
-
-
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -15,12 +9,11 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    preferred_role = db.Column(db.String(8), nullable=False)
-    favorite_survivor = db.Column(db.String(30))
-    favorite_killer = db.Column(db.String(30))
-    hours = db.Column(db.Integer)
+    image_url = db.Column(db.String(500))
+    tagline = db.Column(db.String(100))
 
-    reactions = db.relationship('Reaction', back_populates='users', cascade='all, delete')
+    products = db.relationship('Product', back_populates='users')
+    reviews = db.relationship('Review', back_populates='users')
 
     @property
     def password(self):
@@ -38,8 +31,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'preferred_role': self.preferred_role,
-            'favorite_survivor': self.favorite_survivor,
-            'favorite_killer': self.favorite_killer,
-            'hours': self.hours
+            'tagline': self.tagline,
+            'image_url':self.image_url
         }
