@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, request
+from flask import Blueprint, redirect, request, render_template
 from app.forms.product_form import NewProductForm
 from app.models import Product, db
 from app.models.user import User
@@ -17,3 +17,9 @@ def validation_errors_to_error_messages(validation_errors):
 def all_products():
     products = Product.query.all()
     return products.to_dict()
+
+@product_router.route('/test')
+def all_products_test():
+    products = Product.query.all()
+    product_dict = products[0].to_dict()
+    return render_template('allProducts.html', products=product_dict)
