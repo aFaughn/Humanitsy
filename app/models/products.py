@@ -16,6 +16,7 @@ class Product(db.Model):
     posted = db.Column(db.Date)
 
     users = db.relationship('User', back_populates='products')
+    reviews = db.relationship('Review', back_populates='products')
 
     def to_dict(self):
         return {
