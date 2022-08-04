@@ -60,7 +60,7 @@ def deleteProduct(productId):
 
 #PUT updated info to a product
 @product_router.route('/<productId>/edit', methods=['PUT'])
-def editRestaurant(productId):
+def editProduct(productId):
     product = Product.query.get(productId)
     form= NewProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
