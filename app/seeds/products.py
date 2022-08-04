@@ -1,13 +1,21 @@
 from app.models import db, Product
-import datetime
+from datetime import datetime
 
-# Adds a demo user, you can add other users here if you want
+# Adds a demo products
 def seed_products():
     demo = Product(
-        seller_id=1, name='Longsword', price=100, description='A basic longsword', weapon_type='straight-sword', base_damage='200', scaling_type='Quality', can_be_buffed=True
+        seller_id=2, name='Longsword', price=1200, description='A basic longsword', weapon_type='straight-sword', base_damage='200', scaling_type='Quality', can_be_buffed=True, posted=datetime.now()
+    )
+    fume = Product(
+        seller_id=3, name="Fume Ultra-Greatsword", price=4000, description="A colossal weapon once wielded by the Fume Knight. It has more in common with a boulder than a sword.", weapon_type='greatsword', base_damage=430, scaling_type='Strength', can_be_buffed=False, posted=datetime.now()
+    )
+    zwei = Product(
+        seller_id=2, name="Zweihander", price=3800, description='As the name suggests, the Zweihander is held with two hands, but its weight may require three', weapon_type='greatsword', base_damage='360', scaling_type='Strength', can_be_buffed=True, posted=datetime.now()
     )
 
     db.session.add(demo)
+    db.session.add(fume)
+    db.session.add(zwei)
 
     db.session.commit()
 
