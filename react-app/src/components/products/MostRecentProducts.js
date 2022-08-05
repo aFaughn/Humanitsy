@@ -17,15 +17,17 @@ function MostRecentProducts() {
 
   const reviews = useSelector(state => state.reviewReducer)
   const allReviews = Object.values(reviews)
+  console.log(allReviews)
 
     return (
       <>
-      <h1>Most Recent Products Component</h1>
           <SearchProducts />
+      <h1>Most Recent Products Component</h1>
           <div id='RecentProductWrapper'>
             <ul>
-              {allProducts && allReviews && allProducts.map(product => (
+              {allProducts && allReviews &&allProducts.map(product => (
                 <>
+                <div>
                   <div>
                     <li>{product.name}</li>
                   </div>
@@ -35,11 +37,7 @@ function MostRecentProducts() {
                   <div>
                     <li>{product.seller_id}</li>
                   </div>
-                  <div>
-                    <li>{allReviews.filter(review => review.product_id === product.id).map(review => (
-                      <p>{review.rating}</p>
-                    ))}</li>
-                  </div>
+                </div>
                 </>
               ))}
               </ul>
