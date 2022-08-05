@@ -1,14 +1,14 @@
 import React from 'react';
-import searchProducts from './searchProducts.js'
+import SearchProducts from './SearchProducts'
 
-function mostRecentProducts() {
+function MostRecentProducts() {
     return (
         <>
           <h1>Most Recent Products Component</h1>
-          <searchProducts />
+          <SearchProducts />
           <h1>Very cool list of very cool products...</h1>
         </>
     )
 }
 
-export default mostRecentProducts
+export default MostRecentProducts

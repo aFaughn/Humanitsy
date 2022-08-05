@@ -1,7 +1,7 @@
-function searchProducts() {
+function SearchProducts() {
     return (
         <h1>Search Products Component</h1>
     )
 }
 
-export default searchProducts
+export default SearchProducts
