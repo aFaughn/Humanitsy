@@ -14,9 +14,21 @@ def validation_errors_to_error_messages(validation_errors):
 
 #GET all Products
 @product_router.route('/')
-def all_products():
+def getAllRestaurants():
     products = Product.query.all()
-    return products.to_dict()
+    productsObj = [{
+        'id': product.id,
+        'seller_id': product.seller_id,
+        'name': product.name,
+        'price': product.price,
+        'description': product.description,
+        'weapon_type': product.weapon_type,
+        'base_damage': product.base_damage,
+        'scaling_type': product.scaling_type,
+        'can_be_buffed':product.can_be_buffed,
+        'posted': str(product.posted)
+    } for product in products]
+    return {'products':productsObj}
 
 #GET - Get the new product Form
 #POST - Create new product
