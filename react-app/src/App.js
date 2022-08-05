@@ -10,7 +10,6 @@ import User from './components/User';
 import { authenticate } from './store/session';
 
 import MostRecentProducts from './components/products/MostRecentProducts.js';
-import SearchProducts from './components/products/SearchProducts.js';
 
 function App() {
   const [loaded, setLoaded] = useState(false);

@@ -1,5 +1,5 @@
 from .db import db
-
+#from sqlalchemy import func // func.now()
 
 class Product(db.Model):
     __tablename__ = 'products'
