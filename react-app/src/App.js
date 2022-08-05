@@ -9,6 +9,9 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
+import mostRecentProducts from './components/products/mostRecentProducts';
+import searchProducts from './components/products/searchProducts';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -41,7 +44,9 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <h1>Test</h1>
+          <searchProducts />
+          <mostRecentProducts />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
