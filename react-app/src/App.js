@@ -44,8 +44,6 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>Test</h1>
-          <SearchProducts />
           <MostRecentProducts />
         </ProtectedRoute>
       </Switch>
