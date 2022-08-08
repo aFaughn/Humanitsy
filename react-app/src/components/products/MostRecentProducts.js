@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { GetProductThunk } from '../../store/products'
 import { getReviewsThunk } from '../../store/reviews'
 import SearchProducts from './SearchProducts'
@@ -17,7 +18,8 @@ function MostRecentProducts() {
 
   const reviews = useSelector(state => state.reviewReducer)
   const allReviews = Object.values(reviews)
-  console.log(allReviews)
+
+  const [users, setUsers] = useState([]);
 
     return (
       <>
@@ -28,15 +30,20 @@ function MostRecentProducts() {
               {allProducts && allReviews &&allProducts.map(product => (
                 <>
                 <div>
-                  <div>
-                    <li>{product.name}</li>
-                  </div>
-                  <div>
-                    <li>{product.price.toFixed(2)} Souls</li>
-                  </div>
-                  <div>
-                    <li>{product.seller_id}</li>
-                  </div>
+                  <Link to={`/products/${product.id}`}>
+                    <div>
+                      <li>{product.name}</li>
+                    </div>
+                    <div>
+                      <li>{product.price.toFixed(2)} Souls</li>
+                    </div>
+                    <div>
+                      <li>{(users.filter(user => product.seller_id === user.id).username) ? (users.filter(user => product.seller_id === user.id).username) : 'SellerName'}</li>
+                    </div>
+                    <div>
+                      <li>Average Rating Placeholder</li>
+                    </div>
+                  </Link>
                 </div>
                 </>
               ))}
