@@ -4,23 +4,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 //CSS here
 
-
-
-
 function NewProductForm() {
     //Grab user Id
     const userId = useSelector(state => state.session.user.id)
     const history = useHistory()
-
+    const dispatch = useDispatch()
     //State
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
+
     const [description, setDescription] = useState('')
     const [weapon_type, setWeapon_Type] = useState('')
     const [base_damage, setBase_Damage] = useState(0)
     const [scaling_type, setScaling_Type] = useState('')
     const [can_be_buffed, setCan_Be_Buffed] = useState(false)
     const [errors, setErrors] = useState([])
+    const weapon_type_options = ['Greatsword', 'Straight-Sword','Bow','Dagger','Hammer','Gauntlet','Axe','Spear','Katana','Curved-Sword','Whip','Throwable','Halberd']
 
     async function onSubmit(e) {
         e.preventDefault();
@@ -55,7 +54,7 @@ function NewProductForm() {
                     <ul>
                         {errors.length > 0 && errors.map(error => (
                             <li key={error}>{error}</li>
-                        ))}
+                            ))}
                     </ul>
                 </div>
                 <div>
@@ -88,19 +87,9 @@ function NewProductForm() {
                     </div>
                     <div>
                         <select placeholder='weapon type' onChange={e => setWeapon_Type(e.target.value)} required>
-                            <option>Greatsword</option>
-                            <option>Straight-Sword</option>
-                            <option>Bow</option>
-                            <option>Dagger</option>
-                            <option>Hammer</option>
-                            <option>Gauntlet</option>
-                            <option>Axe</option>
-                            <option>Spear</option>
-                            <option>Katana</option>
-                            <option>Curved-Sword</option>
-                            <option>Whip</option>
-                            <option>Throwable</option>
-                            <option>Halberd</option>
+                            {weapon_type_options.map(weapon => (
+                                <option key={weapon} value={weapon}>{weapon}</option>
+                            ))}
                         </select>
                     </div>
                 </div>

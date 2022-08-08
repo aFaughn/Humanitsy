@@ -121,7 +121,7 @@ export const SearchProductsThunk = (params) => async (dispatch) => {
 
 const initialState = {}
 const productReducer = (state = initialState, action) => {
-    let newState = { ...state }
+    let newState = { ...state } //true deep copy json.parse(json.stingify(state)) back into self.
     switch (action.type) {
         case GET_PRODUCTS:
             action.products.forEach(product => newState[product.id] = product)
