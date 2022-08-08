@@ -10,6 +10,8 @@ import User from './components/User';
 import { authenticate } from './store/session';
 
 import MostRecentProducts from './components/products/MostRecentProducts.js';
+import ProductDetails from './components/products/ProductDetails';
+import NewProductForm from './components/products/NewProductForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +46,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <MostRecentProducts />
+        </ProtectedRoute>
+        <ProtectedRoute path='/products/:productId' exact={true}>
+          <ProductDetails/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/products/forms/newproductform' exact={true}>
+          <NewProductForm/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
