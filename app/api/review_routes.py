@@ -23,7 +23,7 @@ def create_review():
         review = Review(
             user_id = form.data['user_id'],
             product_id = form.data['product_id'],
-            review_body = form.data['review_body'],
+            reviewBody = form.data['reviewBody'],
             rating = form.data['rating'],
             posted = now
         )
@@ -36,7 +36,7 @@ def create_review():
 def edit_review(id):
     form = ReviewForm()
     review = Review.query.get(id)
-    review.review_body = form.data['review_body']
+    review.reviewBody = form.data['reviewBody']
     review.rating = form.data['rating']
     db.session.commit()
     return review.to_dict()

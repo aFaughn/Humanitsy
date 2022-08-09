@@ -6,6 +6,6 @@ class ReviewForm(FlaskForm):
 
     user_id = IntegerField('userId')
     product_id = IntegerField('productId')
-    review_body = StringField('Review')
+    reviewBody = StringField('Review')
     rating = IntegerField('rating', validators=[DataRequired(message="Please provide your rating 1-5."), NumberRange(min=1, max=5, message="Please provide your rating 1-5.")])
     posted = DateField('Time Posted')

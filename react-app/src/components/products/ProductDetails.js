@@ -5,6 +5,7 @@ import { GetProductThunk, DeleteProductThunk, EditProductThunk, GetProductDetail
 import { getReviewsThunk, deleteReviewThunk, editReviewsThunk } from '../../store/reviews'
 import EditProduct from './EditProduct';
 import Reviews from '../reviews/Reviews';
+import ReviewForm from '../reviews/ReviewForm';
 // Cart Imports //
 
 function ProductDetails() {
@@ -71,7 +72,7 @@ function ProductDetails() {
                         </div>
                     )}
                     <Reviews productId={productId}/>
-                    {/* {review && <ReviewForm productId={productId} hide={() => setReview(false)} />} */}
+                    {review && <ReviewForm productId={productId} hide={() => setReview(false)} />}
                     {review_user.length === 0 && <button className='detail-button' onClick={reviewClick}>Write a Review</button>}
                     {edit && <EditProduct productId={productId} hide={() => setEdit(false)} />}
                 </div>

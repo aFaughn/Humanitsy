@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import EditReview from './components/reviews/ReviewEdit'
 import { authenticate } from './store/session';
 
 import MostRecentProducts from './components/products/MostRecentProducts.js';
@@ -52,6 +53,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/products/forms/newproductform' exact={true}>
           <NewProductForm/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/edit/:reviewId'>
+          <EditReview />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
