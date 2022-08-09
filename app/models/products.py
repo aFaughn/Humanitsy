@@ -18,7 +18,7 @@ class Product(db.Model):
     posted = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     users = db.relationship('User', back_populates='products')
-    reviews = db.relationship('Review', back_populates='products')
+    reviews = db.relationship('Review', back_populates='products', cascade= 'all, delete')
 
     def to_dict(self):
         return {

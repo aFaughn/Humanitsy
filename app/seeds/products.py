@@ -12,10 +12,27 @@ def seed_products():
     zwei = Product(
         seller_id=2, name="Zweihander", price=3800, description='As the name suggests, the Zweihander is held with two hands, but its weight may require three', weapon_type='greatsword', base_damage='360', scaling_type='Strength', can_be_buffed=True, posted=datetime.now(), image_url='https://darksouls.wiki.fextralife.com/file/Dark-Souls/zweihander.png'
     )
+    plow = Product(
+        seller_id=2, name='Four-Pronged Plow', price=400, description='Not originally intended for battle, but serves a deadly weapon owing to its sharp points', weapon_type='Halberd', base_damage=105, scaling_type='Faith', can_be_buffed=True, posted=datetime.now(), image_url='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/four-pronged_plow.png'
+    )
+    morion = Product(
+        seller_id=4, name='Morion Blade', price=4600, description='A twisted sword resembling the towers of Londor\'s Sable Church. Induces heavy bleeding.', weapon_type='Straight-Sword', base_damage=100, scaling_type='Quality', can_be_buffed=False, posted=datetime.now(), image_url='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/morion_blade.png'
+    )
+    eGreatsword = Product(
+        seller_id=2, name='Exile Greatsword', price=3400, description='Bloodstained Greatsword wielded by one of the Watchdogs of Farron, who preside over the slumber of fallen warriors.', weapon_type='Curved Sword', base_damage=148, scaling_type='Quality', can_be_buffed=True, posted=datetime.now(), image_url='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/exile_greatsword.png'
+    )
+    lgh = Product(
+        seller_id=3, name='Ledo\'s Great Hammer', price=10000, description='Great Hammer wielded by the Silver Knight Ledo. It is by far the heaviest weapon wielded by the knights of Anor Londo.', weapon_type='Hammer', base_damage=170, scaling_type='Strength', can_be_buffed=True, posted=datetime.now(), image_url="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/ledo's_great_hammer.png"
+    )
+
 
     db.session.add(demo)
     db.session.add(fume)
     db.session.add(zwei)
+    db.session.add(plow)
+    db.session.add(morion)
+    db.session.add(eGreatsword)
+    db.session.add(lgh)
 
     db.session.commit()
 

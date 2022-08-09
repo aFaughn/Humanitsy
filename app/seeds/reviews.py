@@ -11,7 +11,10 @@ def seed_reviews():
         user_id=1, product_id=2, rating=1, reviewBody="I can't even lift the stupid thing! 50 Strength?? Seriously???", posted=now
     )
     demo3 = Review(
-        user_id=1, product_id=2, rating=3, reviewBody="I love this weapon but everybody uses it, in fact, this jerk with the father mask keeps invading and killing me with it and then doing a stupid pose!", posted=now
+        user_id=2, product_id=2, rating=3, reviewBody="I love this weapon but everybody uses it, in fact, this jerk with the father mask keeps invading and killing me with it and then doing a stupid pose!", posted=now
+    )
+    demo4 = Review(
+        user_id=3, product_id=3, rating=5, reviewBody="Cometh soon", posted=now
     )
 
     db.session.add(demo1)
