@@ -14,7 +14,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 #GET all Products
 @product_router.route('/')
-def getAllRestaurants():
+def getAllProducts():
     products = Product.query.all()
     productsObj = [{
         'id': product.id,
@@ -26,6 +26,7 @@ def getAllRestaurants():
         'base_damage': product.base_damage,
         'scaling_type': product.scaling_type,
         'can_be_buffed':product.can_be_buffed,
+        'image_url': product.image_url,
         'posted': str(product.posted)
     } for product in products]
     return {'products':productsObj}
@@ -38,7 +39,7 @@ def new_product():
     form ['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         product = Product(
-            user_id = form.data['user_id'],
+            seller_id = form.data['seller_id'],
             name = form.data['name'],
             price = form.data['price'],
             description = form.data['description'],
@@ -46,7 +47,7 @@ def new_product():
             base_damage = form.data['base_damage'],
             scaling_type = form.data['scaling_type'],
             can_be_buffed = form.data['can_be_buffed'],
-            posted = form.data['posted']
+            image_url = form.data['image_url'],
         )
     if form.errors:
         print(form.errors)

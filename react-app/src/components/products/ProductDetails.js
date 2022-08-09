@@ -3,32 +3,47 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory} from 'react-router-dom'
 import { GetProductThunk, DeleteProductThunk, EditProductThunk, GetProductDetailThunk } from '../../store/products'
 import { getReviewsThunk, deleteReviewThunk, editReviewsThunk } from '../../store/reviews'
+import EditProduct from './EditProduct';
+import Reviews from '../reviews/Reviews';
 // Cart Imports //
 
 function ProductDetails() {
     const dispatch = useDispatch()
-    const{ productId} = useParams()
-    // const userId = useSelector(state => state.session.user?.id)
-    //  const cart = useSelector(state => state.cart[id])
-    const reviews = useSelector(state => state.reviewReducer)
+    const { productId } = useParams()
+    const product = useSelector(state => state.products[productId])
+    const userId = useSelector(state => state.session.user?.id)
+    const session = useSelector(state => state.session)
+    const reviews = useSelector(state => state.reviews)
+    //TODO Cart
     const history = useHistory()
     const [review, setReview] = useState(false)
     const [edit, setEdit] = useState(false)
+    let review_user;
+    if (reviews) {
+        review_user = Object.values(reviews).filter(review => { if (review.user_id === userId && review.product_id === Number(productId)) return true })
+    }
 
     useEffect(()=> {
         dispatch(GetProductThunk())
     },[dispatch, productId])
 
-    const product = useSelector(state => state.productReducer[productId])
+    function handleEdit(e) {
+        e.preventDefault()
+        setReview(false)
+        setEdit(true)
+    }
 
+    function reviewClick(e) {
+        if (!session.user) {
+            history.push('/login')
+        }
+        setEdit(false)
+        setReview(true)
+    }
 
     async function handleDelete(e) {
         e.preventDefault();
-        await fetch(`/api/products/${productId}/delete`, {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' }
-        })
-            .then(async () => await dispatch(DeleteProductThunk(productId)));
+            dispatch(DeleteProductThunk(productId));
         history.push('/')
     }
 
@@ -45,7 +60,20 @@ function ProductDetails() {
                     <p>scaling_type: {product?.scaling_type}</p>
                     <p>seller_id: {product?.seller_id}</p>
                     <p>weapon_type: {product?.weapon_type}</p>
-                    <button onClick={handleDelete}>Delete This Product</button>
+                    <p>url: {product?.image_url}</p>
+                    <img src={product?.image_url} alt='product image'></img>
+                </div>
+                <div>
+                    {session.user && product && product.seller_id === userId && (
+                        <div id='owner_buttons'>
+                            <button onClick={handleDelete}>Delete</button>
+                            <button onClick={handleEdit}>Edit</button>
+                        </div>
+                    )}
+                    <Reviews productId={productId}/>
+                    {/* {review && <ReviewForm productId={productId} hide={() => setReview(false)} />} */}
+                    {review_user.length === 0 && <button className='detail-button' onClick={reviewClick}>Write a Review</button>}
+                    {edit && <EditProduct productId={productId} hide={() => setEdit(false)} />}
                 </div>
             </>
         )

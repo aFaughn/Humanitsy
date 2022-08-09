@@ -13,10 +13,10 @@ function MostRecentProducts() {
    dispatch(getReviewsThunk())
   },[dispatch])
 
-  const products = useSelector(state => state.productReducer)
+  const products = useSelector(state => state.products)
   const allProducts = Object.values(products)
 
-  const reviews = useSelector(state => state.reviewReducer)
+  const reviews = useSelector(state => state.reviews)
   const allReviews = Object.values(reviews)
 
   const [users, setUsers] = useState([]);

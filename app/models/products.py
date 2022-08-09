@@ -1,4 +1,5 @@
 from .db import db
+from sqlalchemy import func
 #from sqlalchemy import func // func.now()
 
 class Product(db.Model):
@@ -6,14 +7,15 @@ class Product(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     seller_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    name = db.Column(db.String(50), nullable=False, unique=True)
+    name = db.Column(db.String(50), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(1000))
     weapon_type = db.Column(db.String(50), nullable=False)
     base_damage = db.Column(db.Integer)
     scaling_type = db.Column(db.String(50))
     can_be_buffed = db.Column(db.Boolean)
-    posted = db.Column(db.Date)
+    image_url = db.Column(db.String(1000))
+    posted = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     users = db.relationship('User', back_populates='products')
     reviews = db.relationship('Review', back_populates='products')
@@ -29,5 +31,6 @@ class Product(db.Model):
             'base_damage':self.base_damage,
             'scaling_type':self.scaling_type,
             'can_be_buff':self.can_be_buffed,
+            'image_url': self.image_url,
             'posted': str(self.posted)
         }

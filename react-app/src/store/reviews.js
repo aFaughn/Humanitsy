@@ -71,7 +71,7 @@ export const deleteReviewThunk = (id)=> async(dispatch)=>{
 }
 
 const initialState ={}
-const reviewReducer =(state=initialState, action)=>{
+const reviews =(state=initialState, action)=>{
     let newState = {...state}
     switch(action.type){
         case GET_REVIEWS:
@@ -95,4 +95,4 @@ const reviewReducer =(state=initialState, action)=>{
     }
 }
 
-export default reviewReducer
+export default reviews
