@@ -24,7 +24,7 @@ function NewProductForm() {
 
     async function onSubmit(e) {
         e.preventDefault();
-        const now = new Date()
+        // const now = new Date()
         const product = {
             seller_id: userId,
             name,
@@ -79,6 +79,9 @@ function NewProductForm() {
         if (!base_damage) {
             validationErrors.push('Please provid a base damage value')
         }
+        if (image_url.length > 1000) {
+            validationErrors.push('Image url too long')
+        }
         setErrors(validationErrors)
     }
 
@@ -87,9 +90,6 @@ function NewProductForm() {
         console.log(errors)
     },[description, price, name, weapon_type, base_damage, scaling_type, can_be_buffed, image_url])
 
-    useEffect(() => {
-        dispatch(GetProductThunk())
-    })
     return (
         <>
         <h1>New Product Form</h1>
