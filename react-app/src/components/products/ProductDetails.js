@@ -4,15 +4,16 @@ import { useParams, useHistory} from 'react-router-dom'
 import { GetProductThunk, DeleteProductThunk, EditProductThunk, GetProductDetailThunk } from '../../store/products'
 import { getReviewsThunk, deleteReviewThunk, editReviewsThunk } from '../../store/reviews'
 import EditProduct from './EditProduct';
+import Reviews from '../reviews/Reviews';
 // Cart Imports //
 
 function ProductDetails() {
     const dispatch = useDispatch()
     const { productId } = useParams()
-    const product = useSelector(state => state.productReducer[productId])
+    const product = useSelector(state => state.products[productId])
     const userId = useSelector(state => state.session.user?.id)
     const session = useSelector(state => state.session)
-    const reviews = useSelector(state => state.reviewReducer)
+    const reviews = useSelector(state => state.reviews)
     //TODO Cart
     const history = useHistory()
     const [review, setReview] = useState(false)
@@ -69,7 +70,7 @@ function ProductDetails() {
                             <button onClick={handleEdit}>Edit</button>
                         </div>
                     )}
-                    <h1>Product Reviews Placeholder</h1>
+                    <Reviews productId={productId}/>
                     {/* {review && <ReviewForm productId={productId} hide={() => setReview(false)} />} */}
                     {review_user.length === 0 && <button className='detail-button' onClick={reviewClick}>Write a Review</button>}
                     {edit && <EditProduct productId={productId} hide={() => setEdit(false)} />}

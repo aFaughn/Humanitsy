@@ -8,7 +8,7 @@ function EditProduct() {
  //Grab user Id
  const { productId } = useParams()
  const userId = useSelector(state => state.session.user.id)
- const product = useSelector(state => state.productReducer[productId])
+ const product = useSelector(state => state.products[productId])
  const history = useHistory()
  const dispatch = useDispatch()
  //State
@@ -109,7 +109,7 @@ function EditProduct() {
                      <p>Product Name *</p>
                  </div>
                  <div>
-                     <input type='text' value={product.name} placeholder='product name' onChange={e => setName(e.target.value)} required></input>
+                     <input type='text' value={name} placeholder='product name' onChange={e => setName(e.target.value)} required></input>
                  </div>
              </div>
              <div>
@@ -117,7 +117,7 @@ function EditProduct() {
                      <p>Product Description</p>
                  </div>
                  <div>
-                     <textarea type='description' value={product.description} placeholder='description' onChange={e => setDescription(e.target.value)} ></textarea>
+                     <textarea type='description' value={description} placeholder='description' onChange={e => setDescription(e.target.value)} ></textarea>
                  </div>
              </div>
              <div>
@@ -125,7 +125,7 @@ function EditProduct() {
                      <p>Price *</p>
                  </div>
                  <div>
-                     <input type='number' value={product.price} placeholder='price' onChange={e => setPrice(e.target.value)} required></input>
+                     <input type='number' value={price} placeholder='price' onChange={e => setPrice(e.target.value)} required></input>
                  </div>
              </div>
              <div>
@@ -133,7 +133,7 @@ function EditProduct() {
                      <p>Weapon Type *</p>
                  </div>
                  <div>
-                     <select placeholder='weapon type' value={product.weapon_type} onChange={e => setWeapon_Type(e.target.value)} required>
+                     <select placeholder='weapon type' value={weapon_type} onChange={e => setWeapon_Type(e.target.value)} required>
                          {weapon_type_options.map(weapon => (
                              <option key={weapon} value={weapon}>{weapon}</option>
                          ))}
@@ -145,7 +145,7 @@ function EditProduct() {
                      <p>Base Damage *</p>
                  </div>
                  <div>
-                     <input type='number' value={product.base_damage} placeholder='Base Damage' onChange={e => setBase_Damage(e.target.value)} required></input>
+                     <input type='number' value={base_damage} placeholder='Base Damage' onChange={e => setBase_Damage(e.target.value)} required></input>
                  </div>
              </div>
              <div>
@@ -153,7 +153,7 @@ function EditProduct() {
                      <p>Scaling Type <span>*</span></p>
                  </div>
                  <div>
-                     <select onChange={e => setScaling_Type(e.target.value)} required value={product.scaling_type}>
+                     <select onChange={e => setScaling_Type(e.target.value)} required value={scaling_type}>
                          <option>Dexterity</option>
                          <option>Strength</option>
                          <option>Quality</option>
@@ -170,7 +170,7 @@ function EditProduct() {
                      <p>Buffable?</p>
                  </div>
                  <div>
-                     <input type='checkbox' checked={product.can_be_buffed} onChange={handleCheck}></input>
+                     <input type='checkbox' checked={can_be_buffed} onChange={handleCheck}></input>
                  </div>
              </div>
              <div>
@@ -178,7 +178,7 @@ function EditProduct() {
                      <p>Image URL *</p>
                  </div>
                  <div>
-                     <input type='text' value={product.image_url} onChange={e => setImage_Url(e.target.value)}></input>
+                     <input type='text' value={image_url} onChange={e => setImage_Url(e.target.value)}></input>
                  </div>
              </div>
              <button type='submit' disabled={errors.length} >Submit</button>
