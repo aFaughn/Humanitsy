@@ -6,11 +6,11 @@ def seed_users():
     demo = User(
         username='Demo', email='demo@aa.io', password='password')
     marnie = User(
-        username='Andre of Astora', email='marnie@aa.io', password='password', tagline='Prithee be careful')
+        username='Andre of Astora', email='marnie@aa.io', password='password', image_url='static.wikia.nocookie.net/darksouls/images/5/5c/Andre_%282%29.jpg' ,tagline='Prithee be careful')
     bobbie = User(
-        username='Giant Blacksmith', email='bobbie@aa.io', password='password', tagline='Forge I can, Strong I am!')
+        username='Giant Blacksmith', email='bobbie@aa.io', password='password', image_url='darksouls.wiki.fextralife.com/file/Dark-Souls/giant_blacksmith_header_full.jpg', tagline='Forge I can, Strong I am!')
     vamos = User(
-        username='Vamos The Undead Smithy', email='vamos@aa.io', password='password', tagline="Buy something, before you spoil my focus!"
+        username='Vamos The Undead Smithy', email='vamos@aa.io', password='password', image_url='static.wikia.nocookie.net/darksouls/images/0/03/Vamos.jpg' ,tagline="Buy something, before you spoil my focus!"
     )
 
     db.session.add(demo)

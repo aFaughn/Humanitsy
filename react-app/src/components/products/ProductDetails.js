@@ -45,6 +45,8 @@ function ProductDetails() {
                     <p>scaling_type: {product?.scaling_type}</p>
                     <p>seller_id: {product?.seller_id}</p>
                     <p>weapon_type: {product?.weapon_type}</p>
+                    <p>url: {product?.image_url}</p>
+                    <img src={product?.image_url} alt='product image'></img>
                     <button onClick={handleDelete}>Delete This Product</button>
                 </div>
             </>
