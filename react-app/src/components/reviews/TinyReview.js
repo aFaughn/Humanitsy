@@ -38,7 +38,7 @@ function TinyReview({productId}) {
 
 
     return (
-        <li>{'✰'.repeat(averageScore)}</li>
+        <li>{typeof averageScore === 'number' ? '✰'.repeat(averageScore) : 'No Reviews Yet'}</li>
     )
 }
 
