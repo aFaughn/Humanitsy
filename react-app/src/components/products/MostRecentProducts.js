@@ -28,8 +28,7 @@ function MostRecentProducts() {
           <div id='RecentProductWrapper'>
             <ul>
               {allProducts && allReviews &&allProducts.map(product => (
-                <>
-                <div>
+                <div key={product.id}>
                   <Link to={`/products/${product.id}`}>
                     <div>
                       <li>{product.name}</li>
@@ -45,7 +44,6 @@ function MostRecentProducts() {
                     </div>
                   </Link>
                 </div>
-                </>
               ))}
               </ul>
             </div>
