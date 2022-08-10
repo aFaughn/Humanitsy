@@ -55,6 +55,15 @@ function App() {
         <ProtectedRoute path='/edit/:reviewId'>
           <EditReview />
         </ProtectedRoute>
+        <Route>
+          <div>
+            <h1>404: Mimic URL</h1>
+            <div>
+
+            </div>
+          </div>
+
+        </Route>
       </Switch>
     </BrowserRouter>
   );

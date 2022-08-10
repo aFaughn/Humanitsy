@@ -21,7 +21,7 @@ const NavBar = () => {
     <nav>
       <ul>
         <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
+          <NavLink to='/splashpage' exact={true} activeClassName='active'>
             IconPlaceHolder
           </NavLink>
         </li>

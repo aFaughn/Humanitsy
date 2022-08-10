@@ -6,7 +6,7 @@ import { getReviewsThunk, deleteReviewThunk, editReviewsThunk } from '../../stor
 import EditProduct from './EditProduct';
 import Reviews from '../reviews/Reviews';
 import ReviewForm from '../reviews/ReviewForm';
-// Cart Imports //
+import "./ProductDetails.css";
 
 function ProductDetails() {
     const dispatch = useDispatch()
@@ -61,7 +61,8 @@ function ProductDetails() {
 
         return (
             <>
-                <h1>Product Details Component</h1>
+                <h1 className='font-souls'>Product Details Component</h1>
+                <h1 className='font-souls'>YOU DIED</h1>
                 <div>
                     <p>name: {product?.name}</p>
                     <p>damage: {product?.base_damage}</p>
@@ -70,7 +71,7 @@ function ProductDetails() {
                     <p>posted: {product?.posted}</p>
                     <p>price: {product?.price.toFixed(2)} Souls</p>
                     <p>scaling_type: {product?.scaling_type}</p>
-                    <p>seller_id: {product?.seller_id}</p>
+                    <p>seller: {users.find(user => user.id === product.seller_id)?.username}</p>
                     <p>weapon_type: {product?.weapon_type}</p>
                     <p>url: {product?.image_url}</p>
                     <img src={product?.image_url} alt='product image'></img>

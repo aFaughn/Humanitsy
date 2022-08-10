@@ -1,6 +1,14 @@
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
+import {useSelector} from 'react-redux'
 
 function SplashPage() {
+    const history = useHistory()
+    const user = useSelector(state => state.session.user)
+    if (user) {
+        history.push('/')
+    }
+
+
     return (
     <div>
         <h1>Welcome to Humanitsy</h1>

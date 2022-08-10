@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'souls';
+    src: local('CrimsonText-Regular'), url(../../fonts/CrimsonText-Regular.ttf) format('truetype');
+}
+
+
+.font-souls {
+    font-family: souls;
+    margin-top: 0px;
+}
