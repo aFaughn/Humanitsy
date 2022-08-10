@@ -13,15 +13,13 @@ function MostRecentProducts() {
    dispatch(GetProductThunk())
    dispatch(getReviewsThunk())
   },[dispatch])
-  const allUsers = useSelector(state => state.session)
+  const users = useSelector(state => state.session)
 
   const products = useSelector(state => state.products)
   const allProducts = Object.values(products)
 
   const reviews = useSelector(state => state.reviews)
   const allReviews = Object.values(reviews)
-
-  const [users, setUsers] = useState([]);
 
     return (
       <>
@@ -39,10 +37,10 @@ function MostRecentProducts() {
                       <li>{product.price.toFixed(2)} Souls</li>
                     </div>
                     <div>
-                      <li>{'SellerName'}</li>
+                      <li>{'placeholder seller name'}</li>
                     </div>
                     <div>
-                      {/*<TinyReview productId={product.id}/> */}
+                      <TinyReview productId={product.id}/>
                     </div>
                   </Link>
                 </div>
