@@ -41,6 +41,8 @@ export const GetProductThunk = () => async (dispatch) => {
         const data = await response.json()
         dispatch(getProducts(data.products))
         return data
+    } else {
+        return {"message":'Something went horribly, horribly, wrong. Or nothing has been made yet.'}
     }
 }
 

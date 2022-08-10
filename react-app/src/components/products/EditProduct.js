@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {CreateProductThunk, GetProductThunk} from '../../store/products';
+import {CreateProductThunk} from '../../store/products';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom'
 //CSS here
@@ -186,7 +186,10 @@ function EditProduct() {
          <div>
              <h3>Image Preview:</h3>
              <p>Detected File Type: {image_url.slice(-4)}</p>
-             <img src={image_url} alt='image preview'></img>
+             <div>
+                <img src={image_url} alt='preview'></img>
+                <img src={'https://i.imgur.com/YaglpbH.png'} alt='preview backup'></img>
+             </div>
          </div>
      </div>
      </>
