@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { GetProductThunk } from '../../store/products'
 import { getReviewsThunk } from '../../store/reviews'
+import TinyReview from '../reviews/TinyReview'
 import SearchProducts from './SearchProducts'
 
 function MostRecentProducts() {
@@ -12,6 +13,7 @@ function MostRecentProducts() {
    dispatch(GetProductThunk())
    dispatch(getReviewsThunk())
   },[dispatch])
+  const allUsers = useSelector(state => state.session)
 
   const products = useSelector(state => state.products)
   const allProducts = Object.values(products)
@@ -37,10 +39,10 @@ function MostRecentProducts() {
                       <li>{product.price.toFixed(2)} Souls</li>
                     </div>
                     <div>
-                      <li>{(users.filter(user => product.seller_id === user.id).username) ? (users.filter(user => product.seller_id === user.id).username) : 'SellerName'}</li>
+                      <li>{'SellerName'}</li>
                     </div>
                     <div>
-                      <li>Average Rating Placeholder</li>
+                      {/*<TinyReview productId={product.id}/> */}
                     </div>
                   </Link>
                 </div>

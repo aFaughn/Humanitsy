@@ -13,7 +13,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 #GET all Products
-@product_router.route('/')
+@product_router.route('')
 def getAllProducts():
     products = Product.query.all()
     productsObj = [{
