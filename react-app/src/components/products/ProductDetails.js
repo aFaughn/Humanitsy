@@ -28,6 +28,17 @@ function ProductDetails() {
         dispatch(GetProductThunk())
     },[dispatch, productId])
 
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+      async function fetchData() {
+        const response = await fetch('/api/users/');
+        const responseData = await response.json();
+        setUsers(responseData.users);
+      }
+      fetchData();
+    }, []);
+
     function handleEdit(e) {
         e.preventDefault()
         setReview(false)

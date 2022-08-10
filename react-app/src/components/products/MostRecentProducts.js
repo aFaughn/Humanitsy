@@ -8,20 +8,28 @@ import SearchProducts from './SearchProducts'
 
 function MostRecentProducts() {
   const dispatch = useDispatch()
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-   dispatch(GetProductThunk())
-   dispatch(getReviewsThunk())
+    dispatch(GetProductThunk())
+    dispatch(getReviewsThunk())
   },[dispatch])
-  const allUsers = useSelector(state => state.session)
+
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/users/');
+      const responseData = await response.json();
+      setUsers(responseData.users);
+    }
+    fetchData();
+  }, []);
 
   const products = useSelector(state => state.products)
   const allProducts = Object.values(products)
 
   const reviews = useSelector(state => state.reviews)
   const allReviews = Object.values(reviews)
-
-  const [users, setUsers] = useState([]);
 
     return (
       <>
@@ -39,10 +47,10 @@ function MostRecentProducts() {
                       <li>{product.price.toFixed(2)} Souls</li>
                     </div>
                     <div>
-                      <li>{'SellerName'}</li>
+                      <li>{users.find(user => user.id === product.seller_id)?.username}</li>
                     </div>
                     <div>
-                      {/*<TinyReview productId={product.id}/> */}
+                      <TinyReview productId={product.id}/>
                     </div>
                   </Link>
                 </div>

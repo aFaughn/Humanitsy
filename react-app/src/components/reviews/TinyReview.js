@@ -6,6 +6,7 @@ import { getReviewsThunk } from '../../store/reviews'
 
 function TinyReview({productId}) {
     const dispatch = useDispatch()
+    const [sum, setSum] = useState(0)
 
     useEffect(() => {
      dispatch(GetProductThunk())
@@ -17,24 +18,27 @@ function TinyReview({productId}) {
 
     const reviews = useSelector(state => state.reviews) //Obj
     const allReviews = Object.values(reviews) //Array
+    const allProductReviews = allReviews.filter(review => review.product_id === productId)
 
-    const ThisProductsReviews = allReviews.filter(review => review.product_id === productId)
-    let sum = 0
-    ThisProductsReviews.forEach(review => {
-        console.log(review.rating, sum)
-        review.rating += sum
-    })
-    if (sum === 0) {
-        return 0
-    } else {
-        return null
+    const avgOf = (array) => {
+        let total = 0;
+        if (!array.length) {
+            return null;
+        } else {
+            for (let i = 0; i < array.length; i++) {
+                let num = array[i];
+                total += num
+            };
+            return total / array.length
+        }
     }
-    // console.log(AvgRating)
+
+    const averageScore = avgOf(allProductReviews.map(review => review.rating))
 
 
 
     return (
-        <li>Placeholder</li>
+        <li>{typeof averageScore === 'number' ? '✰'.repeat(averageScore) : 'No Reviews Yet'}</li>
     )
 }
 
