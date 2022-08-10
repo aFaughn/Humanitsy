@@ -89,7 +89,6 @@ function EditProduct() {
 
  useEffect(() => {
      validations()
-     console.log(errors)
  },[description, price, name, weapon_type, base_damage, scaling_type, can_be_buffed, image_url])
 
  return (
