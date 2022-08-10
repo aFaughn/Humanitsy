@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 import MostRecentProducts from './components/products/MostRecentProducts.js';
 import ProductDetails from './components/products/ProductDetails';
 import NewProductForm from './components/products/NewProductForm';
+import SplashPage from './components/SplashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,18 +40,15 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <Route path='/' exact={true} >
+        <Route path='/splashpage'>
+          <SplashPage />
+        </Route>
+        <ProtectedRoute path='/' exact={true} >
           <MostRecentProducts />
-        </Route>
-        <Route path='/products/:productId' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/products/:productId' exact={true}>
           <ProductDetails/>
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path='/products/forms/newproductform' exact={true}>
           <NewProductForm/>
         </ProtectedRoute>

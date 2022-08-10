@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 //CSS Import
 import { demoLogin } from '../store/session';
@@ -8,10 +8,13 @@ import { useDispatch, useSelector } from 'react-redux';
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch();
+
+  const history = useHistory()
+
   function handleClick(e) {
     e.preventDefault();
-
-    return dispatch(demoLogin())
+    dispatch(demoLogin())
+    return history.push('/')
   }
 
   return (

@@ -11,8 +11,8 @@ function MostRecentProducts() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-   dispatch(GetProductThunk())
-   dispatch(getReviewsThunk())
+    dispatch(GetProductThunk())
+    dispatch(getReviewsThunk())
   },[dispatch])
 
 
@@ -24,8 +24,6 @@ function MostRecentProducts() {
     }
     fetchData();
   }, []);
-
-  console.log()
 
   const products = useSelector(state => state.products)
   const allProducts = Object.values(products)
