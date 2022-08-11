@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-//CSS Import
 import { demoLogin } from '../store/session';
 import { useDispatch, useSelector } from 'react-redux';
+import './NavBar.css'
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -19,7 +19,7 @@ const NavBar = () => {
 
   return (
     <nav>
-      <ul>
+      <ul id='nav-elements'>
         <li>
           <NavLink to='/splashpage' exact={true} activeClassName='active'>
             IconPlaceHolder
@@ -28,14 +28,18 @@ const NavBar = () => {
         {!sessionUser && (
         <div>
           <li>
-            <NavLink to='/login' exact={true} activeClassName='active'>
-              Login
-            </NavLink>
+            <div className='navButton'>
+              <NavLink to='/login' exact={true} activeClassName='active'>
+                Login
+              </NavLink>
+            </div>
           </li>
           <li>
-            <NavLink to='/sign-up' exact={true} activeClassName='active'>
-              Sign Up
-            </NavLink>
+            <div>
+              <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                Sign Up
+              </NavLink>
+            </div>
           </li>
           <li>
             <button id={'demo-login'} onClick={handleClick}>Demo Login</button>
@@ -45,9 +49,11 @@ const NavBar = () => {
         {sessionUser && (
           <>
             <li>
-              <NavLink to='/products/forms/newproductform' exact={true} activeClassName='active'>
-                New Product
-              </NavLink>
+              <div className='navButton'>
+                <NavLink to='/products/forms/newproductform' exact={true} activeClassName='active'>
+                  New Product
+                </NavLink>
+              </div>
             </li>
             <li>
               Praise The Sun, {sessionUser.username}
