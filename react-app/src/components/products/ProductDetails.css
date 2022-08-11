@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'souls';
+    src: local('CrimsonText-Regular'), url(../../fonts/CrimsonText-Regular.ttf) format('truetype');
+}
+body {
+    background-color: #181a1b;
+}
+.font-souls {
+    font-family: souls;
+    margin-top: 0px;
+}
+#details-component-wrapper {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-family: souls;
+    background-color: #181a1b;
+}
+#title-wrapper {
+    color: #F0EAE6;
+    background-color: #181a1b;
+    border-bottom: 1px solid #776e62;
+}
+#product-image {
+    height: 150px;
+}
+.product-stats {
+    color: white;
+    font-size: 20px;
+    width: 400px;
+}
+#details-container {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #776e62;
+}
+#description-container {
+    color: white;
+    padding-left: 150px;
+}

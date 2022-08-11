@@ -1,0 +1,59 @@
+* {
+    margin: 0px;
+}
+#nav-elements {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    font-family: souls;
+    margin: 0px;
+    width: 100%;
+    color: white;
+    font-size: 17px;
+}
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #181a1b;
+    height: 50px;
+    border-bottom: 1px solid #776e62;
+}
+nav > li {
+    width: 150px;
+    max-width: 130px;
+}
+.navButton {
+    display: flex;
+    align-items: center;
+    height: 10px;
+    padding: 10px;
+    max-width: 130px;
+    background-color: #181a1b;
+    border: 1px solid #776e62;
+    border-radius: 5px;
+}
+.navButton:hover {
+    background-color: #666;
+}
+.navButton > a {
+    color: white;
+}
+a {
+    text-decoration: none;
+}
+nav > ul > li > button {
+    background-color: #333;
+    font-family: souls;
+    border-radius: 3px;
+    color: white;
+    width: 80px;
+    height: 25px;
+    border: 1px solid #776e62;
+    margin-right: 10px;
+    font-size: 15px;
+}
+nav > ul > li > button:hover {
+    background-color: #666;
+}

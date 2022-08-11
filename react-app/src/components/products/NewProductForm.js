@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {CreateProductThunk} from '../../store/products';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-//CSS here
+import './NewProductForm.css'
 
 function NewProductForm() {
     //Grab user Id
@@ -89,11 +89,24 @@ function NewProductForm() {
         validations()
     },[description, price, name, weapon_type, base_damage, scaling_type, can_be_buffed, image_url])
 
+    const messages = [
+        'A Weapon Capable of Linking The Flame?',
+        'Forged in the fires of Lost Izalith',
+        'Pulled from the Smelter Demon himself.',
+        'Hours of Hitting The Same Sword With A Hammer',
+        'Finally got the key to your workshop?',
+        '👽 Bogos Binted?'
+    ]
+    const [message, setMessage] = useState('')
+    useEffect(() => {
+        setMessage(messages[Math.floor(Math.random() * (messages.length))])
+    },[dispatch])
+
     return (
         <>
-        <h1>New Product Form</h1>
-        <div>
-            <form onSubmit={onSubmit}>
+        <div id='product-form-page-wrapper'>
+        <h1>{message}</h1>
+            <form onSubmit={onSubmit} id='new-weapon-form'>
                 <div className='form_errors'>
                     <ul>
                         {errors.length > 0 && errors.map(error => (
@@ -114,7 +127,7 @@ function NewProductForm() {
                         <p>Product Description</p>
                     </div>
                     <div>
-                        <textarea type='description' placeholder='description' onChange={e => setDescription(e.target.value)} ></textarea>
+                        <textarea id='product-description' type='description' placeholder='description' onChange={e => setDescription(e.target.value)} ></textarea>
                     </div>
                 </div>
                 <div>
@@ -178,16 +191,16 @@ function NewProductForm() {
                         <input type='text' onChange={e => setImage_Url(e.target.value)}></input>
                     </div>
                 </div>
-                <button type='submit' disabled={errors.length} >Submit</button>
+                <button id='submit-product' type='submit' disabled={errors.length} >Submit</button>
             </form>
-            <div>
+            {/* <div>
                 <h3>Image Preview:</h3>
                 <p>Detected File Type: {image_url.slice(-4)}</p>
                 <div>
                     <img src={image_url} alt='preview'></img>
                     <img src={'https://i.imgur.com/YaglpbH.png'} alt='preview backup'></img>
                 </div>
-            </div>
+            </div> */}
         </div>
         </>
     )

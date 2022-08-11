@@ -5,6 +5,7 @@ import { GetProductThunk } from '../../store/products'
 import { getReviewsThunk } from '../../store/reviews'
 import TinyReview from '../reviews/TinyReview'
 import SearchProducts from './SearchProducts'
+import './MostRecentProducts.css'
 
 function MostRecentProducts() {
   const dispatch = useDispatch()
@@ -33,15 +34,18 @@ function MostRecentProducts() {
 
     return (
       <>
-          <SearchProducts />
-      <h1>Most Recent Products Component</h1>
+          {/* <SearchProducts /> */}
           <div id='RecentProductWrapper'>
-            <ul>
+            <h1 id='most-recent-product-banner'>Most Recent Products</h1>
+            <ul className='product-card-container'>
               {allProducts && allReviews &&allProducts.map(product => (
-                <div key={product.id}>
+                <div key={product.id} className='product-card'>
                   <Link to={`/products/${product.id}`}>
                     <div>
                       <li>{product.name}</li>
+                    </div>
+                    <div>
+                      <img className='product-img' src={product.image_url} alt='product'></img>
                     </div>
                     <div>
                       <li>{product.price.toFixed(2)} Souls</li>
@@ -56,7 +60,7 @@ function MostRecentProducts() {
                 </div>
               ))}
               </ul>
-            </div>
+           </div>
         </>
     )
 }

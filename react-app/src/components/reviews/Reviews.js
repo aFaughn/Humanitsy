@@ -3,7 +3,7 @@ import { getReviewsThunk } from '../../store/reviews';
 import { deleteReviewThunk } from '../../store/reviews';
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-//CSS import
+import './Reviews.css'
 
 function Reviews({ productId }) {
     const dispatch = useDispatch();
@@ -51,13 +51,15 @@ function Reviews({ productId }) {
     return (
         <>
             {reviews &&
-                <div>
+                <div className='reviews-container'>
+                    <div id='average-review-container'>
                     {!averageScore && (
                         <h2>Nobody has used this weapon yet! (or has lived to tell the tale...)</h2>
-                    )}
+                        )}
                     {averageScore && (
                         <h2>Average Rating: {'⭐'.repeat(averageScore)}</h2>
-                    )}
+                        )}
+                    </div>
                     <h3>Ramblings of Mad Hollows (aka Reviews)</h3>
                     {reviews.map(review => {
                         return (
@@ -76,9 +78,9 @@ function Reviews({ productId }) {
                                 {user && user.id === review.user_id && (
                                     <div className='review-action-buttons'>
                                         <NavLink to={`/edit/${review.id}`}>
-                                            <button className={`edit-${review.id}`}>Edit</button>
+                                            <button id='edit-review' className={`edit-${review.id}`}>Edit</button>
                                         </NavLink>
-                                        <button className={`delete-${review.id}`} onClick={onDelete}>Delete</button>
+                                        <button id='delete-review' className={`delete-${review.id}`} onClick={onDelete}>Delete</button>
                                     </div>
                                 )}
                             </div>
