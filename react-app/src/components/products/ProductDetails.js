@@ -61,32 +61,39 @@ function ProductDetails() {
 
         return (
             <>
-                <h1 className='font-souls'>Product Details Component</h1>
-                <h1 className='font-souls'>YOU DIED</h1>
-                <div>
-                    <p>name: {product?.name}</p>
-                    <p>damage: {product?.base_damage}</p>
-                    <p>can_be_buffed: {product?.can_be_buffed}</p>
-                    <p>description: {product?.description}</p>
-                    <p>posted: {product?.posted}</p>
-                    <p>price: {product?.price.toFixed(2)} Souls</p>
-                    <p>scaling_type: {product?.scaling_type}</p>
-                    <p>seller: {users.find(user => user.id === product.seller_id)?.username}</p>
-                    <p>weapon_type: {product?.weapon_type}</p>
-                    <p>url: {product?.image_url}</p>
-                    <img src={product?.image_url} alt='product image'></img>
-                </div>
-                <div>
-                    {session.user && product && product.seller_id === userId && (
-                        <div id='owner_buttons'>
-                            <button onClick={handleDelete}>Delete</button>
-                            <button onClick={handleEdit}>Edit</button>
+                <div id='details-component-wrapper'>
+                    <div>
+                        <div id='title-wrapper'>
+                            <h1>{product?.name}</h1>
+                            <h3>Masterfully crafted by: {users.find(user => user.id === product.seller_id)?.username}</h3>
                         </div>
-                    )}
-                    <Reviews productId={productId}/>
-                    {review && <ReviewForm productId={productId} hide={() => setReview(false)} />}
-                    {review_user.length === 0 && <button className='detail-button' onClick={reviewClick}>Write a Review</button>}
-                    {edit && <EditProduct productId={productId} hide={() => setEdit(false)} />}
+                        <div id='details-container'>
+                            <div className='product-stats'>
+                            <img src={product?.image_url} alt='product image' id='product-image'></img>
+                                <p>Base Damage: {product?.base_damage}</p>
+                                <p>Buffable: {product?.can_be_buffed ? 'Yes' : 'No' }</p>
+                                <p>Posted: {product?.posted}</p>
+                                <p>Price: {product?.price.toFixed(2)} Souls</p>
+                                <p>Scaling: {product?.scaling_type}</p>
+                                <p>Weapon Type: {product?.weapon_type}</p>
+                            </div>
+                            <div id='description-container'>
+                                <p>Description: {product?.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        {session.user && product && product.seller_id === userId && (
+                            <div id='owner_buttons'>
+                                <button onClick={handleDelete}>Delete</button>
+                                <button onClick={handleEdit}>Edit</button>
+                            </div>
+                        )}
+                        <Reviews productId={productId}/>
+                        {review && <ReviewForm productId={productId} hide={() => setReview(false)} />}
+                        {review_user.length === 0 && <button className='detail-button' onClick={reviewClick}>Write a Review</button>}
+                        {edit && <EditProduct productId={productId} hide={() => setEdit(false)} />}
+                    </div>
                 </div>
             </>
         )
