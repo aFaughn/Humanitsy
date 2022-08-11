@@ -1,0 +1,67 @@
+#product-form-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: souls;
+    color: white;
+}
+.form_errors {
+    color: red;
+}
+.form_errors > ul {
+    list-style: none;
+}
+#new-weapon-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #776e62;
+    width: 500px;
+    border-radius: 5px;
+}
+#new-weapon-form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#new-weapon-form > div > div > input {
+    width: 250px;
+    height: 50px;
+    border: 1px solid #776e62;
+    background-color: #333;
+    color: white;
+}
+#product-description {
+    width: 250px;
+    height: 50px;
+    border: 1px solid #776e62;
+    background-color: #333;
+    color: white;
+}
+#new-weapon-form > div > div > select {
+    width: 250px;
+    height: 50px;
+    background-color: #333;
+    color: white;
+}
+#submit-product {
+    margin-top: 15px;
+    width: 100px;
+    height: 25px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #666;
+    color: white;
+    border: 3px solid #776e62;
+}
+#submit-product:hover {
+    background-color: #999;
+    cursor: pointer;
+}
+#submit-product:disabled {
+    background-color: #222;
+    color: #333;
+    border: 3px solid #222;;
+    cursor: not-allowed;
+}
