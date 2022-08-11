@@ -22,11 +22,11 @@ const NavBar = () => {
       <ul id='nav-elements'>
         <li>
           <NavLink to='/splashpage' exact={true} activeClassName='active'>
-            IconPlaceHolder
+            <img src='./static/images/humanitsy_nav_logo.png' alt='logo'></img>
           </NavLink>
         </li>
         {!sessionUser && (
-        <div>
+          <>
           <li>
             <div className='navButton'>
               <NavLink to='/login' exact={true} activeClassName='active'>
@@ -35,7 +35,7 @@ const NavBar = () => {
             </div>
           </li>
           <li>
-            <div>
+            <div className='navButton'>
               <NavLink to='/sign-up' exact={true} activeClassName='active'>
                 Sign Up
               </NavLink>
@@ -44,7 +44,7 @@ const NavBar = () => {
           <li>
             <button id={'demo-login'} onClick={handleClick}>Demo Login</button>
           </li>
-        </div>
+          </>
         )}
         {sessionUser && (
           <>

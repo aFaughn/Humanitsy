@@ -44,7 +44,7 @@ a {
     text-decoration: none;
 }
 nav > ul > li > button {
-    background-color: #333;
+    background-color: #181a1b;
     font-family: souls;
     border-radius: 3px;
     color: white;
@@ -56,4 +56,8 @@ nav > ul > li > button {
 }
 nav > ul > li > button:hover {
     background-color: #666;
+}
+#demo-login {
+    height: 35px;
+    width: 100px;
 }

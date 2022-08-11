@@ -42,7 +42,7 @@ export const GetProductThunk = () => async (dispatch) => {
         dispatch(getProducts(data.products))
         return data
     } else {
-        return {"message":'Something went horribly, horribly, wrong.'}
+        return {"message":'Failed: Get Product fetch failed'}
     }
 }
 
@@ -52,6 +52,8 @@ export const GetProductDetailThunk = (id) => async (dispatch) => {
         const data = await response.json()
         dispatch(getProduct(data))
         return data
+    } else {
+        return {'message':`Failed: Could not fetch product ${id}`}
     }
 
 }
@@ -101,7 +103,7 @@ export const DeleteProductThunk = (id) => async (dispatch) => {
         dispatch(deleteProduct(data))
         return data
     } else {
-        console.log({ "message": "Unsuccessful" })
+        console.log({ "message": "Failed: Unsuccessful delete" })
     }
 }
 
@@ -116,7 +118,7 @@ export const SearchProductsThunk = (params) => async (dispatch) => {
         dispatch(searchProducts(data.products));
         return data;
     } else {
-        return { "Message": "Unsuccessful" }
+        return { "Message": "Failed: Unable to search for results" }
     }
 };
 
