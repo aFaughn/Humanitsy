@@ -34,7 +34,7 @@ const LoginForm = ({ visible }) => {
   return (
     <div id='login-form-wrapper'>
       <form onSubmit={onLogin} id='login-form'>
-        <button id='close-login-modal' onClick={() => visible(false)}>X</button>
+        <button type='button' id='close-login-modal' onClick={() => visible(false)}>X</button>
         <p>Sign In</p>
         <div>
           {errors.map((error, ind) => (

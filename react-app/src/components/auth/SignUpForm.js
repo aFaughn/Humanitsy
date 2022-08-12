@@ -46,7 +46,7 @@ const SignUpForm = ({ visible }) => {
   return (
     <div id='signup-form-wrapper'>
       <form onSubmit={onSignUp} id='signup-form'>
-      <button id='close-signup-modal' onClick={() => visible(false)}>X</button>
+      <button type='button' id='close-signup-modal' onClick={() => visible(false)}>X</button>
       <p>Sign Up</p>
         <div>
           {errors.map((error, ind) => (
