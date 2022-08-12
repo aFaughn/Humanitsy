@@ -43,6 +43,7 @@
     cursor: default;
 }
 #close-signup-modal {
+    position: relative;
     width: 25px;
     height: 25px;
     padding: 0px;
@@ -52,6 +53,7 @@
     border: none;
     color: white;
     cursor: pointer;
+    left: 200px;
 }
 #close-signup-modal:hover {
     background-color: #f44;

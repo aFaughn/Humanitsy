@@ -87,8 +87,8 @@ function ProductDetails() {
                     <div>
                         {session.user && product && product.seller_id === userId && (
                             <div id='owner_buttons'>
-                                <button onClick={handleDelete}>Delete</button>
-                                <button onClick={handleEdit}>Edit</button>
+                                <button className='detail-button' onClick={handleDelete}>Delete</button>
+                                <button className='detail-button' onClick={handleEdit}>Edit</button>
                             </div>
                         )}
                         <Reviews productId={productId}/>
