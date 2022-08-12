@@ -71,7 +71,7 @@ function ProductDetails() {
                         </div>
                         <div id='details-container'>
                             <div className='product-stats'>
-                            <img src={product?.image_url} alt='product image' id='product-image'></img>
+                            <img onError={(e) => e.target.src = '/static/images/backupImage.png'} src={product?.image_url} alt='product image' id='product-image'></img>
                                 <p>Base Damage: {product?.base_damage}</p>
                                 <p>Buffable: {product?.can_be_buffed ? 'Yes' : 'No' }</p>
                                 <p>Posted: {product?.posted}</p>
