@@ -65,3 +65,10 @@
     border: 3px solid #222;;
     cursor: not-allowed;
 }
+#image-preview {
+    margin-left: 50px;
+}
+#image-preview > div > img {
+    height: 257px;
+    width: 189px;
+}

@@ -186,12 +186,12 @@ function EditProduct() {
              </div>
              <button id='submit-product' type='submit' disabled={errors.length} >Submit</button>
          </form>
-         <div>
+         <div id='image-preview'>
              <h3>Image Preview:</h3>
              <p>Detected File Type: {image_url.slice(-4)}</p>
+             <p>If you see Solaire, your image failed to load :)</p>
              <div>
-                <img src={image_url} alt='preview'></img>
-                <img src={'https://i.imgur.com/YaglpbH.png'} alt='preview backup'></img>
+                <img onError={(e) => e.target.src = '/static/images/backupImage.png'} src={image_url} alt='preview'></img>
              </div>
          </div>
      </div>
