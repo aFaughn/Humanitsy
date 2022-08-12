@@ -11,10 +11,10 @@ const NavBar = () => {
 
   const history = useHistory()
 
-  function handleClick(e) {
+  async function handleClick(e) {
     e.preventDefault();
-    dispatch(demoLogin())
-    return history.push('/')
+    await dispatch(demoLogin())
+    .then(history.push('/'))
   }
 
   return (

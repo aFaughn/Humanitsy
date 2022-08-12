@@ -110,6 +110,6 @@ Humanitsy was a big project for a single developer and there were often times wh
 ### All Products
 ![Products](https://i.imgur.com/PKrVhDc.png)
 ### Product Details
-![ProductDetails](PlaceHolder)
+![ProductDetails](https://i.imgur.com/HDnCKH2.png)
 ### Splash Page
-![SplashPage](PlaceHolder)
+![SplashPage](https://i.imgur.com/EguaFLv.png)

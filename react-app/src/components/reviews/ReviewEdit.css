@@ -1,0 +1,37 @@
+.edit-form {
+    display: flex;
+    font-family: souls;
+    font-size: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.detail-button {
+    font-family: souls;
+    background-color: #333;
+    border-radius: 5px;
+    width: 150px;
+    color: white;
+    border: 1px solid #776e62;
+    font-size: 17px;
+}
+.detail-button:hover {
+    background-color: #666;
+    cursor: pointer;
+}
+.edit-content > textarea {
+    width: 400px;
+    height: 150px;
+    background-color: #333;
+    color: white;
+    font-family: souls;
+    font-size: 15px;
+}
+.edit-rating > input {
+    background-color: #333;
+    font-family: souls;
+    font-size: 25px;
+    width: 50px;
+    color: white;
+}

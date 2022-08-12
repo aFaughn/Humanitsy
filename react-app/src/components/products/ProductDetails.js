@@ -93,7 +93,7 @@ function ProductDetails() {
                         )}
                         <Reviews productId={productId}/>
                         {review && <ReviewForm productId={productId} hide={() => setReview(false)} />}
-                        {review_user.length === 0 && <button className='detail-button' onClick={reviewClick}>Write a Review</button>}
+                        {review_user.length === 0 && review === false && <button className='detail-button' onClick={reviewClick}>Write a Review</button>}
                         {edit && <EditProduct productId={productId} hide={() => setEdit(false)} />}
                     </div>
                 </div>
