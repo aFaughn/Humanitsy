@@ -35,3 +35,8 @@
     width: 50px;
     color: white;
 }
+.edit-error {
+    color: red;
+    font-family: souls;
+    font-size: 18px;
+}
