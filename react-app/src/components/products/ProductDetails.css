@@ -15,6 +15,9 @@ body {
     font-family: souls;
     background-color: #181a1b;
 }
+#details-component-wrapper > div {
+    margin-bottom: 15px;
+}
 #title-wrapper {
     color: #F0EAE6;
     background-color: #181a1b;
@@ -39,4 +42,17 @@ body {
     color: white;
     margin-left: 0px;
     width: 500px;
+}
+.detail-button {
+    font-family: souls;
+    background-color: #333;
+    border-radius: 5px;
+    width: 150px;
+    color: white;
+    border: 1px solid #776e62;
+    font-size: 17px;
+}
+.detail-button:hover {
+    background-color: #666;
+    cursor: pointer;
 }

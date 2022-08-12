@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createReviewsThunk } from '../../store/reviews';
 import { useDispatch, useSelector } from 'react-redux'
-// CSS Import
+import './ReviewForm.css';
 
 function ReviewForm({ productId, hide }) {
     const dispatch = useDispatch();
@@ -43,7 +43,7 @@ function ReviewForm({ productId, hide }) {
 
     return (
         <div className='review-form'>
-            <form onSubmit={onSubmit}>
+            <form id='new-review-form' onSubmit={onSubmit}>
                 <div>
                     {errors.length > 0 && errors.map(error =>
                         <div key={error} className="review-error">{error}</div>
@@ -56,8 +56,8 @@ function ReviewForm({ productId, hide }) {
                     <p>Rating: </p><input required type='number' className='review-rating' name='rating' onChange={e => setRating(e.target.value)}></input>
                 </div>
                 <div className='review-actions'>
-                    <button type='submit' disabled={errors.length === 0 ? false : true}>Submit</button>
-                    <button onClick={onClick}>Cancel</button>
+                    <button className='detail-button' type='submit' disabled={errors.length === 0 ? false : true}>Submit</button>
+                    <button className='detail-button' onClick={onClick}>Cancel</button>
                 </div>
             </form>
         </div>

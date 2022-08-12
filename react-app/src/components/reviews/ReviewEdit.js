@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { editReviewsThunk } from '../../store/reviews';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-//CSS import
+import './ReviewEdit.css'
 
 function EditReview() {
     const dispatch = useDispatch();
     const { reviewId } = useParams();
     const history = useHistory();
     const review = useSelector(state => state.reviews[reviewId]);
-    const productId = review.product_id;
-    const [content, setContent] = useState(review.reviewBody);
-    const [rating, setRating] = useState(review.rating);
+    const productId = review?.product_id;
+    const [content, setContent] = useState(review?.reviewBody);
+    const [rating, setRating] = useState(review?.rating);
     const [errors, setErrors] = useState([]);
 
     function onClick() {
@@ -36,7 +36,7 @@ function EditReview() {
         if (rating < 1 || rating > 5) {
             arr.push("Please provide rating between 1 and 5.");
         };
-        if (content.length > 255) {
+        if (content?.length > 255) {
             arr.push('Please provide content in 255 characters.');
         };
         setErrors(arr);
@@ -55,11 +55,11 @@ function EditReview() {
                     <textarea name='content' placeholder="Write your edit here...or don't!" value={content} onChange={e => setContent(e.target.value)} ></textarea>
                 </div>
                 <div className='edit-rating'>
-                    <p>Rating: </p><input type='number' name='rating' placeholder='Rating' value={rating} onChange={e => setRating(e.target.value)}></input>
+                    <p>Rating: </p><input type='number' name='rating' placeholder='1-5' value={rating} onChange={e => setRating(e.target.value)}></input>
                 </div>
                 <div className='edit-buttons'>
-                    <button type='submit' disabled={errors.length === 0 ? false : true}>Submit</button>
-                    <button onClick={onClick}>Cancel</button>
+                    <button className='detail-button' type='submit' disabled={errors.length === 0 ? false : true}>Submit</button>
+                    <button className='detail-button' onClick={onClick}>Cancel</button>
                 </div>
             </form>
         </div>
