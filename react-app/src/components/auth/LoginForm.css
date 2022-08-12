@@ -1,0 +1,54 @@
+#login-form-wrapper {
+    background-color: #181a1b;
+    border: 1px solid #776e62;
+    border-radius: 5px;
+    height: 300px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+}
+#login-form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: souls;
+}
+#login-form > label {
+    justify-content: flex-start;
+}
+#login-form > p {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+#login-form > input {
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+    border: 1px solid #776e62;
+}
+#login-submit {
+    margin-top: 100px;
+    font-family: souls;
+    font-size: 20px;
+    border: 1px solid #776e62;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+#login-submit:hover {
+    background-color: #aaa;
+    cursor: pointer;
+}
+#close-login-modal {
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 5px;
+    background-color: red;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+#close-login-modal:hover {
+    background-color: #f44;
+}
