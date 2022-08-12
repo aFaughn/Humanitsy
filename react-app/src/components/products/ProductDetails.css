@@ -21,12 +21,13 @@ body {
     border-bottom: 1px solid #776e62;
 }
 #product-image {
-    height: 150px;
+    height: 257px;
+    width: 189px;
 }
 .product-stats {
     color: white;
     font-size: 20px;
-    width: 400px;
+    width: 600px;
 }
 #details-container {
     display: flex;
@@ -34,6 +35,8 @@ body {
     border-bottom: 1px solid #776e62;
 }
 #description-container {
+    margin-top: 10px;
     color: white;
-    padding-left: 150px;
+    margin-left: 0px;
+    width: 500px;
 }

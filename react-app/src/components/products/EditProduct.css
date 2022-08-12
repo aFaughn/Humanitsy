@@ -1,16 +1,13 @@
 #product-form-page-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: souls;
     color: white;
-    text-align: center;
 }
 .form_errors {
     color: red;
-    width: 256px;
-    margin-right: 30px;
 }
 .form_errors > ul {
     list-style: none;
@@ -67,11 +64,4 @@
     color: #333;
     border: 3px solid #222;;
     cursor: not-allowed;
-}
-#image-preview {
-    margin-left: 50px;
-}
-#image-preview > div > img {
-    height: 257px;
-    width: 189px;
 }

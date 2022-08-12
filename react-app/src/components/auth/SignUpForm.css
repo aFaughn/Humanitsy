@@ -2,7 +2,7 @@
     background-color: #181a1b;
     border: 1px solid #776e62;
     border-radius: 5px;
-    height: 400px;
+    height: 550px;
     width: 250px;
     display: flex;
     justify-content: center;
@@ -38,6 +38,10 @@
     background-color: #aaa;
     cursor: pointer;
 }
+#signup-submit:disabled {
+    background-color: #666;
+    cursor: default;
+}
 #close-signup-modal {
     width: 25px;
     height: 25px;
@@ -51,4 +55,7 @@
 }
 #close-signup-modal:hover {
     background-color: #f44;
+}
+#errors {
+    height: 100px;
 }

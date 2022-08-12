@@ -22,7 +22,7 @@ const NavBar = () => {
       <ul id='nav-elements'>
         <li>
           <NavLink to='/splashpage' exact={true} activeClassName='active'>
-            <img src='./static/images/humanitsy_nav_logo.png' alt='logo'></img>
+            <img src='/static/images/humanitsy_nav_logo.png' alt='logo'></img>
           </NavLink>
         </li>
         {!sessionUser && (

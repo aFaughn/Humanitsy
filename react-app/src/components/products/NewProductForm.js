@@ -64,6 +64,8 @@ function NewProductForm() {
         }
         if (!price) {
             validationErrors.push('Please provide a price')
+        } else if (price > 999999) {
+            validationErrors.push('Price may not be greater than 999,999')
         }
         if (description.length > 1000) {
             validationErrors.push('Description may not be longer than 1000 characters')
@@ -78,6 +80,8 @@ function NewProductForm() {
         }
         if (!base_damage) {
             validationErrors.push('Please provid a base damage value')
+        } else if (base_damage > 999999) {
+            validationErrors.push('Damage may not be greater than 999,999')
         }
         if (image_url.length > 1000) {
             validationErrors.push('Image url too long')
@@ -102,11 +106,15 @@ function NewProductForm() {
         setMessage(messages[Math.floor(Math.random() * (messages.length))])
     },[dispatch])
 
+    function handleImgError(e) {
+        e.target.src = '/static/images/backupImage.png'
+    }
+
     return (
         <>
         <div id='product-form-page-wrapper'>
-        <h1>{message}</h1>
             <form onSubmit={onSubmit} id='new-weapon-form'>
+        <h1>{message}</h1>
                 <div className='form_errors'>
                     <ul>
                         {errors.length > 0 && errors.map(error => (
@@ -193,14 +201,14 @@ function NewProductForm() {
                 </div>
                 <button id='submit-product' type='submit' disabled={errors.length} >Submit</button>
             </form>
-            {/* <div>
+            <div id='image-preview'>
                 <h3>Image Preview:</h3>
                 <p>Detected File Type: {image_url.slice(-4)}</p>
+                <p>If you see Solaire, your image failed to load :)</p>
                 <div>
-                    <img src={image_url} alt='preview'></img>
-                    <img src={'https://i.imgur.com/YaglpbH.png'} alt='preview backup'></img>
+                    <img onError={handleImgError} src={image_url} alt='preview'></img>
                 </div>
-            </div> */}
+            </div>
         </div>
         </>
     )

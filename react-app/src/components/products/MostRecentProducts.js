@@ -42,16 +42,16 @@ function MostRecentProducts() {
                 <div key={product.id} className='product-card'>
                   <Link to={`/products/${product.id}`}>
                     <div>
-                      <li>{product.name}</li>
+                      <li>{product?.name.length > 23 ? `${product.name.slice(0,23)}...` : product.name}</li>
                     </div>
                     <div>
-                      <img className='product-img' src={product.image_url} alt='product'></img>
+                      <img className='product-img' onError={(e) => e.target.src = '/static/images/backupImage.png'} src={product.image_url} alt='product'></img>
                     </div>
                     <div>
-                      <li>{product.price.toFixed(2)} Souls</li>
+                      <li>{product?.price.toFixed(2)} Souls</li>
                     </div>
                     <div>
-                      <li>{users.find(user => user.id === product.seller_id)?.username}</li>
+                      <li>{users?.find(user => user.id === product.seller_id)?.username.length > 23 ? `${users?.find(user => user.id === product.seller_id)?.username.slice(0,23)}...` : users?.find(user => user.id === product.seller_id)?.username }</li>
                     </div>
                     <div>
                       <TinyReview productId={product.id}/>
