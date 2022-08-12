@@ -39,25 +39,25 @@ function MostRecentProducts() {
             <h1 id='most-recent-product-banner'>Most Recent Products</h1>
             <ul className='product-card-container'>
               {allProducts && allReviews &&allProducts.map(product => (
-                <div key={product.id} className='product-card'>
-                  <Link to={`/products/${product.id}`}>
-                    <div>
-                      <li>{product?.name.length > 23 ? `${product.name.slice(0,23)}...` : product.name}</li>
-                    </div>
-                    <div>
-                      <img className='product-img' onError={(e) => e.target.src = '/static/images/backupImage.png'} src={product.image_url} alt='product'></img>
-                    </div>
-                    <div>
-                      <li>{product?.price.toFixed(2)} Souls</li>
-                    </div>
-                    <div>
-                      <li>{users?.find(user => user.id === product.seller_id)?.username.length > 23 ? `${users?.find(user => user.id === product.seller_id)?.username.slice(0,23)}...` : users?.find(user => user.id === product.seller_id)?.username }</li>
-                    </div>
-                    <div>
-                      <TinyReview productId={product.id}/>
+                  <Link to={`/products/${product.id}`} className='card-link'>
+                    <div key={product.id} className='product-card'>
+                        <div>
+                          <li>{product?.name.length > 23 ? `${product.name.slice(0,23)}...` : product.name}</li>
+                        </div>
+                        <div>
+                          <img className='product-img' onError={(e) => e.target.src = '/static/images/backupImage.png'} src={product.image_url} alt='product'></img>
+                        </div>
+                        <div>
+                          <li>{product?.price.toFixed(2)} Souls</li>
+                        </div>
+                        <div>
+                          <li>{users?.find(user => user.id === product.seller_id)?.username.length > 23 ? `${users?.find(user => user.id === product.seller_id)?.username.slice(0,23)}...` : users?.find(user => user.id === product.seller_id)?.username }</li>
+                        </div>
+                        <div>
+                          <TinyReview productId={product.id}/>
+                        </div>
                     </div>
                   </Link>
-                </div>
               ))}
               </ul>
            </div>
