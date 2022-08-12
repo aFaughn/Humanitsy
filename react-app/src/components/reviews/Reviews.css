@@ -1,5 +1,6 @@
 .reviews-container {
     color: white;
+    overflow-wrap:break-word;
 }
 #average-review-container {
     border-bottom: 1px solid #776e62;
@@ -7,6 +8,15 @@
 .review-card {
     border-bottom: 1px solid #776e62;
     font-size: 18px;
+}
+.review-speechless {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-justify: distribute;
+}
+#review-body {
+    width: 100%;
 }
 #edit-review {
     font-family: souls;

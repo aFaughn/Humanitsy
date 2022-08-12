@@ -26,8 +26,9 @@
     align-items: center;
     margin-bottom: 5px;
     border-bottom: 2px solid #776e62;
-    width: 33%;
+    width: 20%;
     height: 300px;
+    min-width: 180px;
 }
 .product-card:hover {
     background-color: #333;
@@ -36,6 +37,7 @@
 }
 .product-img {
     height: 200px;
+    width: 130px;
 }
 #most-recent-product-banner {
     color: white;

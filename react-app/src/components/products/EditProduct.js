@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {CreateProductThunk} from '../../store/products';
+import {EditProductThunk} from '../../store/products';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom'
-//CSS here
+import './EditProduct.css'
 
 function EditProduct() {
  //Grab user Id
@@ -28,6 +28,7 @@ function EditProduct() {
      e.preventDefault();
      // const now = new Date()
      const product = {
+         id: productId,
          seller_id: userId,
          name,
          price,
@@ -39,11 +40,11 @@ function EditProduct() {
          image_url
      }
 
-     const newProduct = await dispatch(CreateProductThunk(product))
-     if (!newProduct) {
+     const editProduct = await dispatch(EditProductThunk(product))
+     if (!editProduct) {
          history.push('/')
      } else {
-         setErrors(newProduct)
+         setErrors(editProduct)
      }
  }
 
@@ -66,6 +67,8 @@ function EditProduct() {
      }
      if (!price) {
          validationErrors.push('Please provide a price')
+     } else if (price > 999999) {
+        validationErrors.push('Price may not be larger than 999,999')
      }
      if (description.length > 1000) {
          validationErrors.push('Description may not be longer than 1000 characters')
@@ -80,6 +83,8 @@ function EditProduct() {
      }
      if (!base_damage) {
          validationErrors.push('Please provid a base damage value')
+     } else if (base_damage > 999999) {
+        validationErrors.push('Damage may not be greater than 999,999')
      }
      if (image_url.length > 1000) {
          validationErrors.push('Image url too long')
@@ -93,9 +98,8 @@ function EditProduct() {
 
  return (
      <>
-     <h1>New Product Form</h1>
-     <div>
-         <form onSubmit={onSubmit}>
+     <div id='product-form-page-wrapper'>
+         <form onSubmit={onSubmit} id='new-weapon-form'>
              <div className='form_errors'>
                  <ul>
                      {errors.length > 0 && errors.map(error => (
@@ -116,7 +120,7 @@ function EditProduct() {
                      <p>Product Description</p>
                  </div>
                  <div>
-                     <textarea type='description' value={description} placeholder='description' onChange={e => setDescription(e.target.value)} ></textarea>
+                     <textarea id='product-description' type='description' value={description} placeholder='description' onChange={e => setDescription(e.target.value)} ></textarea>
                  </div>
              </div>
              <div>
@@ -180,14 +184,14 @@ function EditProduct() {
                      <input type='text' value={image_url} onChange={e => setImage_Url(e.target.value)}></input>
                  </div>
              </div>
-             <button type='submit' disabled={errors.length} >Submit</button>
+             <button id='submit-product' type='submit' disabled={errors.length} >Submit</button>
          </form>
-         <div>
+         <div id='image-preview'>
              <h3>Image Preview:</h3>
              <p>Detected File Type: {image_url.slice(-4)}</p>
+             <p>If you see Solaire, your image failed to load :)</p>
              <div>
-                <img src={image_url} alt='preview'></img>
-                <img src={'https://i.imgur.com/YaglpbH.png'} alt='preview backup'></img>
+                <img onError={(e) => e.target.src = '/static/images/backupImage.png'} src={image_url} alt='preview'></img>
              </div>
          </div>
      </div>

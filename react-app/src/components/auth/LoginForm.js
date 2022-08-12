@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -6,6 +6,7 @@ import './LoginForm.css'
 
 const LoginForm = ({ visible }) => {
   const [errors, setErrors] = useState([]);
+  const [reactErrors, setReactErrors] = useState([])
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -18,6 +19,18 @@ const LoginForm = ({ visible }) => {
       setErrors(data);
     }
   };
+  useEffect(() => {
+    let validations = []
+    if (!email) {
+      validations.push('Please enter a valid email')
+    } else if (email.indexOf('@') === -1 ) {
+      validations.push('Please enter a valid email')
+    }
+    if (!password) {
+      validations.push('Please enter your password')
+    }
+    setReactErrors(validations)
+  }, [email, password])
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -36,10 +49,13 @@ const LoginForm = ({ visible }) => {
       <form onSubmit={onLogin} id='login-form'>
         <button type='button' id='close-login-modal' onClick={() => visible(false)}>X</button>
         <p>Sign In</p>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-            ))}
+        <div id='errors'>
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+          ))}
+        {reactErrors.map((error) => (
+          <div key={error}>{error}</div>
+        ))}
         </div>
         <div>
           <label htmlFor='email'>Email</label>
@@ -61,7 +77,7 @@ const LoginForm = ({ visible }) => {
             value={password}
             onChange={updatePassword}
             />
-          <button id='login-submit' type='submit'>Sign In</button>
+          <button disabled={!!reactErrors.length} id='login-submit' type='submit'>Sign In</button>
       </form>
     </div>
   );

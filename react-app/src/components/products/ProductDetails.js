@@ -55,7 +55,7 @@ function ProductDetails() {
 
     async function handleDelete(e) {
         e.preventDefault();
-            dispatch(DeleteProductThunk(productId));
+            await dispatch(DeleteProductThunk(productId));
         history.push('/')
     }
 
@@ -65,11 +65,13 @@ function ProductDetails() {
                     <div>
                         <div id='title-wrapper'>
                             <h1>{product?.name}</h1>
-                            <h3>Masterfully crafted by: {users.find(user => user.id === product.seller_id)?.username}</h3>
+                            {users && product && (
+                                <h3>Masterfully crafted by: {users.find(user => user.id === product.seller_id)?.username}</h3>
+                            )}
                         </div>
                         <div id='details-container'>
                             <div className='product-stats'>
-                            <img src={product?.image_url} alt='product image' id='product-image'></img>
+                            <img onError={(e) => e.target.src = '/static/images/backupImage.png'} src={product?.image_url} alt='product image' id='product-image'></img>
                                 <p>Base Damage: {product?.base_damage}</p>
                                 <p>Buffable: {product?.can_be_buffed ? 'Yes' : 'No' }</p>
                                 <p>Posted: {product?.posted}</p>

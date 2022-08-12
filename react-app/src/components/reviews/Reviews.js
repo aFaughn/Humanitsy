@@ -71,7 +71,8 @@ function Reviews({ productId }) {
                                 )}
                                 {review.reviewBody && (
                                     <div className='review-speechless'>
-                                        <p>{userMatcher(users, review.user_id)}: "{review.reviewBody}"</p>
+                                        <p>{userMatcher(users, review.user_id)}:</p>
+                                         <div id='review-body'><p>"{review.reviewBody}"</p></div>
                                     </div>
                                 )}
                                 <p className='rating-stars'>{userMatcher(users, review.user_id)}'s rating: {'⭐'.repeat(review.rating)}</p>
