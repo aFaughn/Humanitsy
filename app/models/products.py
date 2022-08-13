@@ -15,7 +15,7 @@ class Product(db.Model):
     scaling_type = db.Column(db.String(50))
     can_be_buffed = db.Column(db.Boolean)
     image_url = db.Column(db.String(1000))
-    posted = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    posted = db.Column(db.DateTime, server_default=func.now(), nullable=False)
 
     users = db.relationship('User', back_populates='products')
     reviews = db.relationship('Review', back_populates='products', cascade= 'all, delete')

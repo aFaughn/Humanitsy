@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, request, render_template
 from app.forms.product_form import NewProductForm
 from app.models import Product, db
 from app.models.user import User
+from sqlalchemy import func
 
 product_router = Blueprint('products',__name__)
 
@@ -48,6 +49,7 @@ def new_product():
             scaling_type = form.data['scaling_type'],
             can_be_buffed = form.data['can_be_buffed'],
             image_url = form.data['image_url'],
+            posted = func.now()
         )
     if form.errors:
         print(form.errors)
@@ -85,6 +87,8 @@ def editProduct(productId):
         product.base_damage = form.data['base_damage']
         product.scaling_type = form.data['scaling_type']
         product.can_be_buffed = form.data['can_be_buffed']
+        product.image_url = form.data['image_url']
+        product.posted = func.now()
 
     if form.errors:
         print(form.errors)

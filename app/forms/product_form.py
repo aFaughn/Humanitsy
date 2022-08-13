@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SelectField, DateField, BooleanField
 from wtforms.validators import DataRequired
+from sqlalchemy import func
 
 #While certainly possible to add every dark souls weapon type - some have been omitted for brevity
 WEAPON_TYPES = ['Greatsword',
@@ -40,3 +41,4 @@ class NewProductForm(FlaskForm):
     scaling_type = SelectField('Highest Scaling Stat', choices=SCALING_TYPES)
     can_be_buffed = BooleanField('Buffable?')
     image_url = StringField('Image URL')
+    posted = DateField('')
