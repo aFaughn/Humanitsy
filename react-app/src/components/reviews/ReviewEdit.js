@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { editReviewsThunk } from '../../store/reviews';
+import { editReviewsThunk, getReviewsThunk } from '../../store/reviews';
+import { GetProductThunk } from '../../store/products';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import './ReviewEdit.css'
@@ -9,13 +10,23 @@ function EditReview() {
     const { reviewId } = useParams();
     const history = useHistory();
     const review = useSelector(state => state.reviews[reviewId]);
-    const productId = review?.product_id;
-    const [content, setContent] = useState(review?.reviewBody);
-    const [rating, setRating] = useState(review?.rating);
+    const [productId, setProductId] = useState(review?.product_id);
     const [errors, setErrors] = useState([]);
+    if (review?.product_id) window.localStorage.setItem('reviewProductId', JSON.stringify(review?.product_id))
+    if (review?.reviewBody) window.localStorage.setItem('reviewContent', JSON.stringify(review?.reviewBody))
+    if (review?.rating) window.localStorage.setItem('reviewRating', JSON.stringify(review?.rating))
+    const [content, setContent] = useState(JSON.parse(window.localStorage.getItem('reviewContent')));
+    const [rating, setRating] = useState(JSON.parse(window.localStorage.getItem('reviewRating')));
+
+    useEffect(() => async () => {
+       await dispatch(getReviewsThunk())
+       await dispatch(GetProductThunk())
+    },[dispatch])
+
+    console.log(reviewId, review, content, rating);
 
     function onClick() {
-        history.push(`/products/${productId}`);
+        history.push(`/products/${review.product_id ? review.product_id : JSON.parse(window.localStorage.getItem('reviewProductId'))}`);
     };
 
     async function onSubmit(e) {
@@ -27,7 +38,8 @@ function EditReview() {
         };
         const editedReview = await dispatch(editReviewsThunk(review));
         if (editedReview) {
-            history.push(`/products/${productId}`);
+            console.log(review?.product_id)
+            history.push(`/products/${JSON.parse(window.localStorage.getItem('reviewProductId'))}`);
         };
     };
 
