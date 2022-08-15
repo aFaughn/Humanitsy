@@ -57,9 +57,8 @@ function App() {
         </ProtectedRoute>
         <Route>
           <div>
+            <div id='bad_page'>
             <h1>404: Mimic URL</h1>
-            <div>
-
             </div>
           </div>
 
