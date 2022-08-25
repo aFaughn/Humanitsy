@@ -59,6 +59,17 @@ function ProductDetails() {
         history.push('/')
     }
 
+    async function addToCart(e) {
+        e.preventDefault();
+        if (!localStorage.getItem(`cart_${userId}`)) {
+            localStorage.setItem(`cart_${userId}`, JSON.stringify([]))
+        }
+        let curCart = JSON.parse(localStorage.getItem(`cart_${userId}`))
+        curCart.push(product);
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(curCart));
+        console.log(curCart);
+    }
+
         return (
             <>
                 <div id='details-component-wrapper'>
@@ -83,6 +94,7 @@ function ProductDetails() {
                                 <p>Description: {product?.description}</p>
                             </div>
                         </div>
+                        <button onClick={addToCart} className='detail-button'>Add To Cart</button>
                     </div>
                     <div>
                         {session.user && product && product.seller_id === userId && (
