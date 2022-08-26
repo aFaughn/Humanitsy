@@ -35,6 +35,16 @@ const NavBar = () => {
         {sessionUser && (
           <>
             <li>
+              Praise The Sun, {sessionUser.username}
+            </li>
+            <li>
+              <div className='navButton'>
+                <NavLink to='/' exact={true} activeClassName='active'>
+                  Home
+                </NavLink>
+              </div>
+            </li>
+            <li>
               <div className='navButton'>
                 <NavLink to='/products/forms/newproductform' exact={true} activeClassName='active'>
                   New Product
@@ -42,7 +52,11 @@ const NavBar = () => {
               </div>
             </li>
             <li>
-              Praise The Sun, {sessionUser.username}
+              <div className='navButton'>
+                <NavLink to='/cart' exact={true} activeClassName='active'>
+                  Cart
+                </NavLink>
+              </div>
             </li>
             <li>
               <LogoutButton />

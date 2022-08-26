@@ -24,6 +24,14 @@ function ProductDetails() {
         review_user = Object.values(reviews).filter(review => { if (review.user_id === userId && review.product_id === Number(productId)) return true })
     }
 
+    const cart = localStorage.getItem(`cart_${userId}`)
+
+    //Create an instance of cart to prevent issues later.
+    //This is only needed for brand new users - a more streamlined solution is likely
+    //possible
+    if (!cart) {
+         localStorage.setItem(`cart_${userId}`,'[]')
+    }
     useEffect(()=> {
         dispatch(GetProductThunk())
     },[dispatch, productId])
@@ -59,6 +67,17 @@ function ProductDetails() {
         history.push('/')
     }
 
+    async function addToCart(e) {
+        e.preventDefault();
+        if (!localStorage.getItem(`cart_${userId}`)) {
+            localStorage.setItem(`cart_${userId}`, JSON.stringify([]))
+        }
+        let curCart = JSON.parse(localStorage.getItem(`cart_${userId}`))
+        curCart.push(product);
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(curCart));
+        console.log(curCart);
+    }
+
         return (
             <>
                 <div id='details-component-wrapper'>
@@ -83,6 +102,7 @@ function ProductDetails() {
                                 <p>Description: {product?.description}</p>
                             </div>
                         </div>
+                        <button onClick={addToCart} className='add-to-cart'>Add To Cart</button>
                     </div>
                     <div>
                         {session.user && product && product.seller_id === userId && (

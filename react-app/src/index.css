@@ -7,3 +7,10 @@
     justify-content: center;
     flex-direction: column;
 }
+#bad_page > img {
+    margin-top: 50px;
+    height: 500px;
+    width: 300px;
+    border: 2px solid #776e62;
+    border-radius: 10px;
+}

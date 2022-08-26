@@ -14,6 +14,7 @@ import MostRecentProducts from './components/products/MostRecentProducts.js';
 import ProductDetails from './components/products/ProductDetails';
 import NewProductForm from './components/products/NewProductForm';
 import SplashPage from './components/SplashPage';
+import ViewCart from './components/cart/ViewCart';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -52,6 +53,9 @@ function App() {
         <ProtectedRoute path='/products/forms/newproductform' exact={true}>
           <NewProductForm/>
         </ProtectedRoute>
+        <ProtectedRoute path='/cart'>
+          <ViewCart/>
+        </ProtectedRoute>
         <ProtectedRoute path='/edit/:reviewId'>
           <EditReview />
         </ProtectedRoute>
@@ -59,6 +63,8 @@ function App() {
           <div>
             <div id='bad_page'>
             <h1>404: Mimic URL</h1>
+            <p>That url didn't work, here's a cute kitty!</p>
+            <img src='https://i.imgur.com/ySXQFn3.jpg'></img>
             </div>
           </div>
 

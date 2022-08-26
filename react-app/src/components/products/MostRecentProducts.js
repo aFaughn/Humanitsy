@@ -10,12 +10,21 @@ import './MostRecentProducts.css'
 function MostRecentProducts() {
   const dispatch = useDispatch()
   const [users, setUsers] = useState([]);
+  const userId = useSelector(state => state.session.user?.id)
 
   useEffect(() => {
     dispatch(GetProductThunk())
     dispatch(getReviewsThunk())
   },[dispatch])
 
+  const cart = localStorage.getItem(`cart_${userId}`)
+
+  //Create an instance of cart to prevent issues later.
+  //This is only needed for brand new users - a more streamlined solution is likely
+  //possible
+  if (!cart) {
+       localStorage.setItem(`cart_${userId}`,'[]')
+  }
 
   useEffect(() => {
     async function fetchData() {
