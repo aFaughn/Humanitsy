@@ -14,7 +14,10 @@ function ViewCart() {
     const session = useSelector(state => state.session)
 
     const cart = JSON.parse(localStorage.getItem(`cart_${userId}`))
-    const [curCart, setCurCart] = useState(cart)
+        const [curCart, setCurCart] = useState(cart)
+    if (!cart) {
+        localStorage.setItem(`cart_${userId}`,'[]')
+    }
 
     function getTotal() {
         let sum = 0
@@ -29,7 +32,9 @@ function ViewCart() {
 
 
     useEffect(() => {
-
+        if (!cart) {
+            localStorage.setItem(`cart_${userId}`,JSON.stringify([]))
+        }
     },[removeFromCart, cart])
 
 

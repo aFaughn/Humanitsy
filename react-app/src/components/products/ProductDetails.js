@@ -24,6 +24,14 @@ function ProductDetails() {
         review_user = Object.values(reviews).filter(review => { if (review.user_id === userId && review.product_id === Number(productId)) return true })
     }
 
+    const cart = localStorage.getItem(`cart_${userId}`)
+
+    //Create an instance of cart to prevent issues later.
+    //This is only needed for brand new users - a more streamlined solution is likely
+    //possible
+    if (!cart) {
+         localStorage.setItem(`cart_${userId}`,'[]')
+    }
     useEffect(()=> {
         dispatch(GetProductThunk())
     },[dispatch, productId])
