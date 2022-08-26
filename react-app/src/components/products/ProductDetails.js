@@ -94,7 +94,7 @@ function ProductDetails() {
                                 <p>Description: {product?.description}</p>
                             </div>
                         </div>
-                        <button onClick={addToCart} className='detail-button'>Add To Cart</button>
+                        <button onClick={addToCart} className='add-to-cart'>Add To Cart</button>
                     </div>
                     <div>
                         {session.user && product && product.seller_id === userId && (

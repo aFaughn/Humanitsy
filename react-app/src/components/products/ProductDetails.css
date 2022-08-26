@@ -56,3 +56,20 @@ body {
     background-color: #666;
     cursor: pointer;
 }
+.add-to-cart {
+    font-family: souls;
+    background-color: #333;
+    border-radius: 5px;
+    width: 150px;
+    color: white;
+    border: 1px solid #776e62;
+    font-size: 17px;
+}
+.add-to-cart:hover {
+    background-color: #666;
+    cursor: pointer;
+}
+.add-to-cart:focus {
+    box-shadow: 0px 0px 20px #b87d1f;
+    transition: all 1s;
+}

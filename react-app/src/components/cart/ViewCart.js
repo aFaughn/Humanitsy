@@ -57,7 +57,7 @@ function ViewCart() {
                 <div className='cart-item-list'>
                 <h1>Ashen One, be sure to bring more souls.</h1>
                 {cart && cart.map(item => (
-                    <div className='cart-item' key={item.id}>
+                    <div className='cart-item' key={cart.indexOf(item)}>
                         <div className='cart-item-image-wrapper'>
                             <img className='cart-image' src={item.image_url} alt={item.name}></img>
                             <ul className='cart-item-details'>
