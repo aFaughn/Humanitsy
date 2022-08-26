@@ -3,7 +3,8 @@
     src: local('CrimsonText-Regular'), url(../../fonts/CrimsonText-Regular.ttf) format('truetype');
 }
 body {
-    background-color: #181a1b;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(24,26,27,1) 20%, rgba(24,26,27,1) 80%, rgba(0,0,0,1) 100%);
 }
 .font-souls {
     font-family: souls;
@@ -13,14 +14,12 @@ body {
     margin-left: 15%;
     margin-right: 15%;
     font-family: souls;
-    background-color: #181a1b;
 }
 #details-component-wrapper > div {
     margin-bottom: 15px;
 }
 #title-wrapper {
     color: #F0EAE6;
-    background-color: #181a1b;
     border-bottom: 1px solid #776e62;
 }
 #product-image {
