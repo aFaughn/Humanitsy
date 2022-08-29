@@ -30,23 +30,25 @@ function Search() {
               type='text'
               placeholder='Search for a product by name or weapon type...'
               onChange={filteredProduct} />
-                {!!searchResults.length && searchResults.map(result => (
+            {searchResults.length > 0 &&
                 <div className='results'>
-                    <Link key={result.id} to={`/products/${result.id}`}>
-                        <div className='resultContainer'>
-                            <div id='resNameContainer'>
-                                <p className='resultName'>{result?.name.length > 23 ? `${result.name.slice(0,23)}...` : result.name}</p>
+                    {!!searchResults.length && searchResults.map(result => (
+                        <Link key={result.id} to={`/products/${result.id}`}>
+                            <div className='resultContainer'>
+                                <div id='resNameContainer'>
+                                    <p className='resultName'>{result?.name.length > 23 ? `${result.name.slice(0,23)}...` : result.name}</p>
+                                </div>
+                                <div id='resTypeContainer'>
+                                    <p className='resultType'>{result.weapon_type}</p>
+                                </div>
+                                <div id='resPriceContainer'>
+                                    <p className='resultPrice'>${result.price}</p>
+                                </div>
                             </div>
-                            <div id='resTypeContainer'>
-                                <p className='resultType'>{result.weapon_type}</p>
-                            </div>
-                            <div id='resPriceContainer'>
-                                <p className='resultPrice'>${result.price}</p>
-                            </div>
-                        </div>
-                    </Link>
-              </div>
-                ))}
+                        </Link>
+                    ))}
+                    </div>
+            }
             </div>
         </>
     )

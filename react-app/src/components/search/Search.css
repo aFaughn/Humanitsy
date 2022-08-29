@@ -6,6 +6,8 @@
     font-family: souls;
     font-size: 18px;
     margin: 10px;
+    background-color: #181a1b;
+    color: white;
 }
 #searchBanner {
     margin-top: 20px;
@@ -15,30 +17,56 @@
     justify-content: center;
 }
 .results {
-    background-color: white;
-    color: black;
+    background-color: #181a1b;
+    color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: absolute;
-    width: 40.5%;
-    top: 149px;
+    margin-top: -10px;
+    margin-left: 10px;
+    width: 39.6%;
     z-index: 1;
     font-family: souls;
     font-size: 16px;
     border-left: 1px solid #776e62;
     border-right: 1px solid #776e62;
     border-bottom: 1px solid #776e62;
+    padding: 5px;
 }
 .resultName {
-    color: black;
+    color: white;
+    font-size: 18px;
 }
 .resultType {
-    color: black;
+    color: #aaa;
+    font-size: 14px;
 }
 .resultPrice {
-    color: black;
+    color: #aaa;
+    font-size: 14px;
 }
 .resultContainer {
     border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+    padding: 2px;
 }
-.resultContainer:hover {}
+.resultContainer:hover {
+    cursor:pointer;
+    background-color: #666;
+}
+#smollerSearchWrapper {
+    color: white;
+    background-color: #181a1b;
+}
+#resNameContainer {
+    width: 250px;
+}
+#resTypeContainer {
+    width: 100px;
+}
+#resPriceContainer {
+    width: 50px;
+}
