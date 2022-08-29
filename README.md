@@ -95,12 +95,12 @@ Humanitsy was built using Flask as it's backend, and React / Redux for it's fron
 Humanitsy was a big project for a single developer and there were often times where I was left scratching my head. That being said, I have big plans for the future of this app and plan to continue updating it over time.
 ## Planned Features
  - [ ] Users can upload their images to AWS instead of just providing a URL
- - [ ] Users can add items to a cart that will persist after logout / refresh
+ - [x] Users can add items to a cart that will persist after logout / refresh
  - [ ] Users can browse all of a seller's products
- - [ ] Users can search products by keyword or attributes
+ - [x] Users can search products by keyword or attributes
  - [ ] Incorporate all stats of weapons
  - [ ] Past Orders
- - [ ] Sign in / Sign up Modal instead of a route
+ - [x] Sign in / Sign up Modal instead of a route
  - [ ] Select Infusion option on add-to-cart
  - [ ] Display number of reviews
  - [ ] Display more of a seller's products beneath a product's page
