@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { GetProductThunk } from '../../store/products'
 import { getReviewsThunk } from '../../store/reviews'
 import TinyReview from '../reviews/TinyReview'
-import SearchProducts from './SearchProducts'
+import Search from '../search/Search';
 import './MostRecentProducts.css'
 
 function MostRecentProducts() {
@@ -43,7 +43,9 @@ function MostRecentProducts() {
 
     return (
       <>
-          {/* <SearchProducts /> */}
+          <div className='search-wrapper'>
+              <Search/>
+          </div>
           <div id='RecentProductWrapper'>
             <h1 id='most-recent-product-banner'>Most Recent Products</h1>
             <ul className='product-card-container'>

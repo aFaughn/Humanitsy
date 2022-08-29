@@ -1,0 +1,76 @@
+.productSearch {
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #776e62;
+    font-family: souls;
+    font-size: 18px;
+    margin: 10px;
+    background-color: #181a1b;
+    color: white;
+}
+#searchBanner {
+    margin-top: 20px;
+    color: white;
+    border-bottom: 2px solid #776e62;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.results {
+    background-color: #181a1b;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 10px;
+    z-index: 1;
+    font-family: souls;
+    font-size: 16px;
+    border-left: 1px solid #776e62;
+    border-right: 1px solid #776e62;
+    border-bottom: 1px solid #776e62;
+    padding: 5px;
+    width: 99%;
+}
+.resultName {
+    color: white;
+    font-size: 18px;
+}
+.resultType {
+    color: #aaa;
+    font-size: 14px;
+}
+.resultPrice {
+    color: #aaa;
+    font-size: 14px;
+}
+.resultContainer {
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+    padding: 2px;
+    width: 100%;
+}
+.resultContainer:hover {
+    cursor:pointer;
+    background-color: #666;
+}
+#smollerSearchWrapper {
+    color: white;
+    background-color: #181a1b;
+    width: 50%;
+    position: relative;
+}
+#resNameContainer {
+    width: 250px;
+}
+#resTypeContainer {
+    width: 100px;
+}
+#resPriceContainer {
+    width: 50px;
+}
