@@ -14,7 +14,7 @@ function ViewCart() {
     const session = useSelector(state => state.session)
 
     const cart = JSON.parse(localStorage.getItem(`cart_${userId}`))
-        const [curCart, setCurCart] = useState(cart)
+    const [curCart, setCurCart] = useState(cart)
     if (!cart) {
         localStorage.setItem(`cart_${userId}`,'[]')
     }
@@ -60,14 +60,14 @@ function ViewCart() {
         <div className='cart-wrapper'>
             <div className='cart-content'>
                 <div className='cart-item-list'>
-                <h1>Ashen One, be sure to bring more souls.</h1>
+                <h1>{curCart.length} items in your cart</h1>
                 {cart && cart.map(item => (
                     <div className='cart-item' key={cart.indexOf(item)}>
                         <div className='cart-item-image-wrapper'>
                             <img className='cart-image' src={item.image_url} alt={item.name}></img>
                             <ul className='cart-item-details'>
-                                <li>{item.price}</li>
                                 <li>{item.name}</li>
+                                <li>{item.price}</li>
                                 <li>{item.weapon_type}</li>
                             </ul>
                         </div>
@@ -82,9 +82,25 @@ function ViewCart() {
                     )}
                     </div>
                     <div className='cart-checkout-wrapper'>
-                        <img id='handmaid' src='/static/images/handmaid_transparent.png' alt='handmaid'></img>
-                        <h1>Total: {getTotal()} souls</h1>
+                        <div>
+                            <h3>How you'll pay</h3>
+                            <div id='payment-methods'>
+                                <div>
+                                    <input type='radio' name='IOU' value='IOU' checked/>I.O.U.
+                                </div>
+                                <div>
+                                    <input type='radio' name='IOU' value='IOU' />Hugs and Kisses
+                                </div>
+                                <div>
+                                    <input type='radio' name='IOU' value='IOU' />Courier Pigeon
+                                </div>
+                            </div>
+                        </div>
+                        <p>Item(s) total: {getTotal()} souls</p>
                         <button className='checkout' onClick={checkout} disabled={!cart.length}>Check Out</button>
+                        <div id='notices'>
+                            <p>* Additional taxes <span id='notice_tax'>will not apply</span> because you're not actually buying anything</p>
+                        </div>
                     </div>
             </div>
         </div>
