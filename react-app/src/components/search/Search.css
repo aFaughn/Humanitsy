@@ -1,0 +1,44 @@
+.productSearch {
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #776e62;
+    font-family: souls;
+    font-size: 18px;
+    margin: 10px;
+}
+#searchBanner {
+    margin-top: 20px;
+    color: white;
+    border-bottom: 2px solid #776e62;
+    display: flex;
+    justify-content: center;
+}
+.results {
+    background-color: white;
+    color: black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    width: 40.5%;
+    top: 149px;
+    z-index: 1;
+    font-family: souls;
+    font-size: 16px;
+    border-left: 1px solid #776e62;
+    border-right: 1px solid #776e62;
+    border-bottom: 1px solid #776e62;
+}
+.resultName {
+    color: black;
+}
+.resultType {
+    color: black;
+}
+.resultPrice {
+    color: black;
+}
+.resultContainer {
+    border-bottom: 1px solid black;
+}
+.resultContainer:hover {}
