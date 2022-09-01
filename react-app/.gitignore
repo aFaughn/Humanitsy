@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# S3 Sensitive Information
+aws_secrets.txt
+new_user_credentials.csv
+new_user_credentials.csv:Zone.Identifier
