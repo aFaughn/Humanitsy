@@ -1,5 +1,5 @@
 .productSearch {
-    width: 100%;
+    width: 95%;
     height: 30px;
     border-radius: 10px;
     border: 1px solid #776e62;
@@ -16,6 +16,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    margin-top: 50px;
 }
 .results {
     background-color: #181a1b;
@@ -32,7 +33,7 @@
     border-right: 1px solid #776e62;
     border-bottom: 1px solid #776e62;
     padding: 5px;
-    width: 99%;
+    width: 94%;
 }
 .resultName {
     color: white;
@@ -64,6 +65,7 @@
     background-color: #181a1b;
     width: 50%;
     position: relative;
+    border-radius: 20px;
 }
 #resNameContainer {
     width: 250px;
@@ -73,4 +75,9 @@
 }
 #resPriceContainer {
     width: 50px;
+}
+.search-wrapper {
+    height: 20em;
+    background: radial-gradient(rgba(0,130,170,0) 0%, rgba(24,26,27,1) 70%),
+    url('https://i.imgur.com/UrwQYb1.jpg')
 }
