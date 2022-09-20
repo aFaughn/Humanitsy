@@ -7,6 +7,7 @@ import './NewProductForm.css'
 function NewProductForm() {
     //Grab user Id
     const userId = useSelector(state => state.session.user.id)
+    const username = useSelector(state => state.session.user.username)
     const history = useHistory()
     const dispatch = useDispatch()
     //State
@@ -14,14 +15,41 @@ function NewProductForm() {
     const [price, setPrice] = useState(0)
 
     const [description, setDescription] = useState('')
-    const [weapon_type, setWeapon_Type] = useState('')
+    const [weapon_type, setWeapon_Type] = useState('Greatsword')
     const [base_damage, setBase_Damage] = useState(0)
-    const [scaling_type, setScaling_Type] = useState('')
+    const [scaling_type, setScaling_Type] = useState('Dexterity')
     const [can_be_buffed, setCan_Be_Buffed] = useState(false)
     const [image_url, setImage_Url] = useState('')
     const [errors, setErrors] = useState([])
-    const weapon_type_options = ['Greatsword', 'Straight-Sword','Bow','Dagger','Hammer','Gauntlet','Axe','Spear','Katana','Curved-Sword','Whip','Throwable','Halberd']
+    const [showPreview, setShowPreview] = useState(false);
+    const [displayErrors, setDisplayErrors] = useState(false);
 
+    const weapon_type_options = [
+        'Greatsword',
+        'Straight-Sword',
+        'Bow',
+        'Dagger',
+        'Hammer',
+        'Gauntlet',
+        'Axe',
+        'Spear',
+        'Katana',
+        'Curved-Sword',
+        'Whip',
+        'Throwable',
+        'Halberd'
+    ]
+    const scaling_type_options = [
+        'Dexterity',
+        'Strength',
+        'Quality',
+        'Intelligence',
+        'Faith',
+        'DEX & INT',
+        'STR & FAI',
+        'All',
+        'None'
+    ]
     async function onSubmit(e) {
         e.preventDefault();
         // const now = new Date()
@@ -53,6 +81,17 @@ function NewProductForm() {
         }
     }
 
+    const togglePreview = (e) => {
+        e.preventDefault()
+        showPreview ? setShowPreview(false) : setShowPreview(true);
+    }
+
+    const handleSubmit = (e) => {
+        if (errors.length > 0) {
+            e.preventDefault()
+            setDisplayErrors(true);
+        }
+    }
 
     const validations = () => {
         const validationErrors = []
@@ -116,11 +155,13 @@ function NewProductForm() {
             <form onSubmit={onSubmit} id='new-weapon-form'>
         <h1>{message}</h1>
                 <div className='form_errors'>
-                    <ul>
-                        {errors.length > 0 && errors.map(error => (
-                            <li key={error}>{error}</li>
-                            ))}
-                    </ul>
+                    {displayErrors && (
+                        <div>
+                            {errors.length > 0 && errors.map(error => (
+                                <li key={error}>{error}</li>
+                                ))}
+                        </div>
+                    )}
                 </div>
                 <div>
                     <div>
@@ -135,19 +176,7 @@ function NewProductForm() {
                         <p>Price *</p>
                     </div>
                     <div>
-                        <input type='number' placeholder='price' onChange={e => setPrice(e.target.value)} required></input>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <p>Weapon Type *</p>
-                    </div>
-                    <div>
-                        <select placeholder='weapon type' onChange={e => setWeapon_Type(e.target.value)} required>
-                            {weapon_type_options.map(weapon => (
-                                <option key={weapon} value={weapon}>{weapon}</option>
-                            ))}
-                        </select>
+                        <input type='number' placeholder='1 - 999,999' onChange={e => setPrice(e.target.value)} required></input>
                     </div>
                 </div>
                 <div>
@@ -155,24 +184,7 @@ function NewProductForm() {
                         <p>Base Damage *</p>
                     </div>
                     <div>
-                        <input type='number' placeholder='Base Damage' onChange={e => setBase_Damage(e.target.value)} required></input>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <p>Scaling Type <span>*</span></p>
-                    </div>
-                    <div>
-                        <select onChange={e => setScaling_Type(e.target.value)} required>
-                            <option>Dexterity</option>
-                            <option>Strength</option>
-                            <option>Quality</option>
-                            <option>Intelligence</option>
-                            <option>Faith</option>
-                            <option>DEX & FAI</option>
-                            <option>DEX & INT</option>
-                            <option>All</option>
-                        </select>
+                        <input type='number' placeholder='1 - 999,999' onChange={e => setBase_Damage(e.target.value)} required></input>
                     </div>
                 </div>
                 <div>
@@ -193,23 +205,57 @@ function NewProductForm() {
                 </div>
                 <div>
                     <div>
+                        <p>Scaling Type <span>*</span></p>
+                    </div>
+                    <div>
+                        <select onChange={e => setScaling_Type(e.target.value)} required>
+                            {scaling_type_options.map(option => (
+                                <option key={option} value={option}>{option}</option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p>Weapon Type *</p>
+                    </div>
+                    <div>
+                        <select placeholder='weapon type' onChange={e => setWeapon_Type(e.target.value)} required>
+                            {weapon_type_options.map(weapon => (
+                                <option key={weapon} value={weapon}>{weapon}</option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div>
                         <p>Product Description</p>
                     </div>
                     <div>
                         <textarea id='product-description' type='description' placeholder='description' onChange={e => setDescription(e.target.value)} ></textarea>
                     </div>
                 </div>
-                <button id='submit-product' type='submit' disabled={errors.length} >Submit</button>
+                <button id='preview-button' onClick={togglePreview}>Preview</button>
+                <button id='submit-product' type='submit' onClick={(e) => handleSubmit(e)}>Submit</button>
             </form>
-            <div id='image-preview'>
-                <h3>Image Preview:</h3>
-                <p>Detected File Type: {image_url.slice(-4)}</p>
-                <p>If you see Solaire, your image failed to load :)</p>
-                <div>
-                    <img onError={handleImgError} src={image_url} alt='preview'></img>
+        </div>
+            {showPreview && (
+            <div id='preview-modal-bg'>
+                <div id='preview-modal-wrapper'>
+                    <div id='image-preview'>
+                        <h3>Preview:</h3>
+                        <p>{name.length > 23 ? name.slice(0,23) + '...' : name}</p>
+                        <div>
+                            <img onError={handleImgError} src={image_url} alt='preview'></img>
+                        </div>
+                        <p>{price}</p>
+                        <p>{username}</p>
+                        <p>No Reviews Yet</p>
+                    </div>
+                    <button id='preview-button' onClick={togglePreview}>Close</button>
                 </div>
             </div>
-        </div>
+            )}
         </>
     )
 }
