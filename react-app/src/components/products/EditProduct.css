@@ -9,7 +9,7 @@
 .form_errors {
     color: red;
 }
-.form_errors > ul {
+.form_errors > div {
     list-style: none;
 }
 #new-weapon-form {
@@ -64,9 +64,6 @@
     color: #333;
     border: 3px solid #222;;
     cursor: not-allowed;
-}
-#image-preview {
-    margin-left: 50px;
 }
 #image-preview > div > img {
     height: 257px;

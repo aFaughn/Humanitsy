@@ -6,14 +6,20 @@
     font-family: souls;
     color: white;
     text-align: center;
+    margin-top: 10px;
 }
 .form_errors {
     color: red;
     width: 256px;
     margin-right: 30px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
-.form_errors > ul {
+.form_errors > div {
     list-style: none;
+    padding-left: none;
 }
 #new-weapon-form {
     display: flex;
@@ -27,13 +33,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 5px;
 }
 #new-weapon-form > div > div > input {
     width: 250px;
-    height: 50px;
-    border: 1px solid #776e62;
-    background-color: #333;
+    height: 20px;
+    border: none;
+    background: none;
+    border-bottom: 2px solid #776e62;
     color: white;
+    text-align: center;
+    display: flex;
+    font-size: 15px;
+}
+#new-weapon-form > div > div > input:focus {
+    outline: none;
 }
 #product-description {
     width: 250px;
@@ -41,12 +55,19 @@
     border: 1px solid #776e62;
     background-color: #333;
     color: white;
+    font-family: souls;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-top: 5px;
 }
 #new-weapon-form > div > div > select {
     width: 250px;
-    height: 50px;
+    height: 25px;
+    background: none;
     background-color: #333;
     color: white;
+    text-align: center;
+    margin-bottom: 15px;
 }
 #submit-product {
     margin-top: 15px;
@@ -68,10 +89,56 @@
     border: 3px solid #222;;
     cursor: not-allowed;
 }
-#image-preview {
-    margin-left: 50px;
-}
 #image-preview > div > img {
     height: 257px;
     width: 189px;
+}
+#preview-button {
+    margin-top: 15px;
+    width: 100px;
+    height: 25px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    background-color: #666;
+    color: white;
+    border: 3px solid #776e62;
+}
+#preview-button:hover {
+    background-color: #999;
+    cursor: pointer;
+}
+#preview-modal-bg {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#image-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #222;
+    width: 220px;
+    height: 400px;
+}
+#image-preview > h3 {
+    color: white;
+    text-align:center;
+    font-family: souls;
+}
+#image-preview > p {
+    color: white;
+    font-family: souls;
+    text-align: center;
+}
+#preview-modal-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
