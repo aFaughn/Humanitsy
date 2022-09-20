@@ -127,15 +127,7 @@ function NewProductForm() {
                         <p>Product Name *</p>
                     </div>
                     <div>
-                        <input type='text' placeholder='product name' onChange={e => setName(e.target.value)} required></input>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <p>Product Description</p>
-                    </div>
-                    <div>
-                        <textarea id='product-description' type='description' placeholder='description' onChange={e => setDescription(e.target.value)} ></textarea>
+                        <input type='text' onChange={e => setName(e.target.value)} required></input>
                     </div>
                 </div>
                 <div>
@@ -197,6 +189,14 @@ function NewProductForm() {
                     </div>
                     <div>
                         <input type='text' onChange={e => setImage_Url(e.target.value)}></input>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p>Product Description</p>
+                    </div>
+                    <div>
+                        <textarea id='product-description' type='description' placeholder='description' onChange={e => setDescription(e.target.value)} ></textarea>
                     </div>
                 </div>
                 <button id='submit-product' type='submit' disabled={errors.length} >Submit</button>
