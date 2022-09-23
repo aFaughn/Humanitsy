@@ -67,7 +67,7 @@ function ViewCart() {
                             <img className='cart-image' src={item.image_url} alt={item.name}></img>
                             <ul className='cart-item-details'>
                                 <li>{item.name}</li>
-                                <li>{item.price}</li>
+                                <li>{item.price} souls</li>
                                 <li>{item.weapon_type}</li>
                             </ul>
                         </div>
