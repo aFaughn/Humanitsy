@@ -20,7 +20,9 @@
     width: 100%;
 }
 #edit-review {
+    margin: 5px;
     font-family: souls;
+    height: 25px;
     background-color: #333;
     border-radius: 5px;
     width: 75px;
@@ -32,6 +34,8 @@
     background-color: #666;
 }
 #delete-review {
+    height: 25px;
+    margin-top: 5px;
     font-family: souls;
     background-color: #333;
     border-radius: 5px;
