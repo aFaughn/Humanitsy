@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { getReviewsThunk } from '../../store/reviews';
 import { deleteReviewThunk } from '../../store/reviews';
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,6 +13,7 @@ function Reviews({ productId }) {
     const reviews = allReviews.filter(review => (review.product_id === Number(productId)))
     const user = useSelector(state => state.session.user)
     const [users, setUsers] = useState([]);
+    const trashCan = <FontAwesomeIcon icon={faTrashCan} />
 
     const avgOf = (array) => {
         let total = 0;
@@ -81,7 +84,7 @@ function Reviews({ productId }) {
                                         <NavLink to={`/edit/${review.id}`}>
                                             <button id='edit-review' className={`edit-${review.id}`}>Edit</button>
                                         </NavLink>
-                                        <button id='delete-review' className={`delete-${review.id}`} onClick={onDelete}>Delete</button>
+                                        <button id='delete-review' className={`delete-${review.id}`} onClick={onDelete}>{trashCan}</button>
                                     </div>
                                 )}
                             </div>

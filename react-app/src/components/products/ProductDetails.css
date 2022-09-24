@@ -11,8 +11,8 @@ body {
     margin-top: 0px;
 }
 #details-component-wrapper {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
     font-family: souls;
 }
 #details-component-wrapper > div {
@@ -56,6 +56,7 @@ body {
     cursor: pointer;
 }
 .add-to-cart {
+    margin-top: 15px;
     font-family: souls;
     background-color: #333;
     border-radius: 5px;
