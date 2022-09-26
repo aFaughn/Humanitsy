@@ -16,7 +16,7 @@ def validation_errors_to_error_messages(validation_errors):
 #GET all Products
 @product_router.route('')
 def getAllProducts():
-    products = Product.query.all()
+    products = Product.query.order_by(Product.id.desc())
     productsObj = [{
         'id': product.id,
         'seller_id': product.seller_id,
