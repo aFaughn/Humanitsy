@@ -46,6 +46,8 @@
 #splash-login:hover {
     background-color: #aaa;
     cursor: pointer;
+    transition: 0.5s ease;
+    border: 1px solid #776e62;
 }
 #about-me-wrapper {
     height: 100px;
@@ -63,10 +65,28 @@
     padding-right: 50px;
 }
 .gitHub {
-    height: 25px;
+    height: 50px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #181a18;
+    transition: 0.3s linear;
 }
 .linkedIn {
-    height: 25px;
+    border: 1px solid #181a18;
+    height: 50px;
+    margin: 10px;
+    padding: 5px;
+    transition: 0.3s linear;
+}
+.linkedIn:hover {
+    border: 1px solid #776e62;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+.gitHub:hover {
+    border: 1px solid #776e62;
+    border-radius: 50px;
+    transition: 0.3s ease;
 }
 #modal-bg {
     position: fixed;
