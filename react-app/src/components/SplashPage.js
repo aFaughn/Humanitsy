@@ -42,7 +42,6 @@ function SplashPage() {
                     <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/allen-faughn-4a3502235/'>
                         <img src='https://i.imgur.com/CyfqUHg.png' className='linkedIn' alt='linkedIn' />
                     </a>
-                    <p>Allen Faughn</p>
                     </li>
                 </ul>
             </div>
