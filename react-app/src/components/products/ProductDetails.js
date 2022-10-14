@@ -90,13 +90,28 @@ function ProductDetails() {
                         </div>
                         <div id='details-container'>
                             <div className='product-stats'>
-                            <img onError={(e) => e.target.src = '/static/images/backupImage.png'} src={product?.image_url} alt='product image' id='product-image'></img>
-                                <p>Base Damage: {product?.base_damage}</p>
-                                <p>Buffable: {product?.can_be_buffed ? 'Yes' : 'No' }</p>
-                                <p>Posted: {product?.posted}</p>
-                                <p>Price: {product?.price.toFixed(2)} Souls</p>
-                                <p>Scaling: {product?.scaling_type}</p>
-                                <p>Weapon Type: {product?.weapon_type}</p>
+                                <img onError={(e) => e.target.src = '/static/images/backupImage.png'} src={product?.image_url} alt='product image' id='product-image'></img>
+                                <div id='details-container'>
+                                    <p>Product Stats</p>
+                                </div>
+                                <div id='one-detail'>
+                                    <div>Base Damage:</div><div> {product?.base_damage}</div>
+                                </div>
+                                <div id='one-detail'>
+                                    <div>Buffable:</div><div class='product-stat'> {product?.can_be_buffed ? 'Yes' : 'No' }</div>
+                                </div>
+                                <div id='one-detail'>
+                                    <div>Posted:</div><div class='product-stat'> {product?.posted}</div>
+                                </div>
+                                <div id='one-detail'>
+                                    <div>Price:</div><div class='product-stat'> {product?.price.toFixed(2)} Souls</div>
+                                </div>
+                                <div id='one-detail'>
+                                    <div>Scaling:</div><div class='product-stat'> {product?.scaling_type}</div>
+                                </div>
+                                <div id='one-detail'>
+                                    <div>Weapon Type:</div><div class='product-stat'> {product?.weapon_type}</div>
+                                </div>
                             </div>
                             <div id='description-container'>
                                 <p>Description: {product?.description}</p>
