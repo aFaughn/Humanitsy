@@ -94,23 +94,26 @@ function ProductDetails() {
                                 <div id='details-container'>
                                     <p>Product Stats</p>
                                 </div>
-                                <div id='one-detail'>
-                                    <div>Base Damage:</div><div> {product?.base_damage}</div>
-                                </div>
-                                <div id='one-detail'>
-                                    <div>Buffable:</div><div class='product-stat'> {product?.can_be_buffed ? 'Yes' : 'No' }</div>
-                                </div>
-                                <div id='one-detail'>
-                                    <div>Posted:</div><div class='product-stat'> {product?.posted}</div>
-                                </div>
-                                <div id='one-detail'>
-                                    <div>Price:</div><div class='product-stat'> {product?.price.toFixed(2)} Souls</div>
-                                </div>
-                                <div id='one-detail'>
-                                    <div>Scaling:</div><div class='product-stat'> {product?.scaling_type}</div>
-                                </div>
-                                <div id='one-detail'>
-                                    <div>Weapon Type:</div><div class='product-stat'> {product?.weapon_type}</div>
+                                <div id='stats-container'>
+                                    <div id='one-detail'>
+                                        <div><img src='/static/icons/sword.png' alt='Base Damage'className='detail-icon'></img></div><div> {product?.base_damage}</div>
+                                    </div>
+                                    <div id='one-detail'>
+                                        <div><img src='/static/icons/star.png' alt='Buffable' className='detail-icon'></img></div><div class='product-stat'> {product?.can_be_buffed ? 'Yes' : 'No' }</div>
+                                    </div>
+                                    <div id='one-detail'>
+                                        <div><img src='/static/icons/wall-clock.png' alt='posted' className='detail-icon'></img></div><div class='product-stat'> {product?.posted}</div>
+                                    </div>
+                                    <div id='one-detail'>
+                                        <div><img src='/static/icons/dollar.png' alt='price' className='detail-icon'></img></div><div class='product-stat'> {product?.price.toFixed(2)} Souls</div>
+                                    </div>
+                                    <div id='one-detail'>
+                                        <div><img src='/static/icons/up-arrow.png' alt='scaling' className='detail-icon'></img></div><div class='product-stat'> {product?.scaling_type}</div>
+                                    </div>
+                                    <div id='one-detail'>
+                                        <div><img src='/static/icons/privacy.png' alt='weapon type' className='detail-icon'></img></div><div class='product-stat'> {product?.weapon_type}</div>
+                                    </div>
+                                    {/* TODO: Attribute Icon creators */}
                                 </div>
                             </div>
                             <div id='description-container'>

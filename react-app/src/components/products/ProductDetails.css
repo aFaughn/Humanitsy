@@ -76,8 +76,18 @@ body {
 #one-detail {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
 }
 #one-detail > div {
-    width: 200px;
+    width: 250px;
+}
+.detail-icon {
+    height: 30px;
+    background-color: #bbb;
+    border: 2px solid #666;
+    border-radius: 10px;
+    padding: 3px;
+}
+#stats-container {
+    width: 210px;
 }
