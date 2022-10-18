@@ -19,6 +19,12 @@ function ProductDetails() {
     const history = useHistory()
     const [review, setReview] = useState(false)
     const [edit, setEdit] = useState(false)
+    const [showToolTipDamage, setShowTooltipDamage] = useState(false)
+    const [showToolTipBuffable, setShowTooltipBuffable] = useState(false)
+    const [showToolTipPosted, setShowTooltipPosted] = useState(false)
+    const [showToolTipPrice, setShowTooltipPrice] = useState(false)
+    const [showToolTipScalingType, setShowTooltipScalingType] = useState(false)
+    const [showToolTipWeaponType, setShowTooltipWeaponType] = useState(false)
     let review_user;
     if (reviews) {
         review_user = Object.values(reviews).filter(review => { if (review.user_id === userId && review.product_id === Number(productId)) return true })
@@ -96,22 +102,34 @@ function ProductDetails() {
                                 </div>
                                 <div id='stats-container'>
                                     <div id='one-detail'>
-                                        <div><img src='/static/icons/sword.png' alt='Base Damage'className='detail-icon'></img></div><div> {product?.base_damage}</div>
+                                        <div onMouseEnter={() => setShowTooltipDamage(true)} onMouseLeave={() => setShowTooltipDamage(false)} ><img src='/static/icons/sword.png' alt='Base Damage'className='detail-icon'></img></div>
+                                        <div>{product?.base_damage}</div>
+                                        <div hidden={!showToolTipDamage} className='explain-icon'>Base Damage</div>
                                     </div>
                                     <div id='one-detail'>
-                                        <div><img src='/static/icons/star.png' alt='Buffable' className='detail-icon'></img></div><div class='product-stat'> {product?.can_be_buffed ? 'Yes' : 'No' }</div>
+                                        <div onMouseEnter={() => setShowTooltipBuffable(true)} onMouseLeave={() => setShowTooltipBuffable(false)} ><img src='/static/icons/star.png' alt='Buffable' className='detail-icon'></img></div>
+                                        <div class='product-stat'> {product?.can_be_buffed ? 'Yes' : 'No' }</div>
+                                        <div hidden={!showToolTipBuffable} className='explain-icon'>Buffable</div>
                                     </div>
                                     <div id='one-detail'>
-                                        <div><img src='/static/icons/wall-clock.png' alt='posted' className='detail-icon'></img></div><div class='product-stat'> {product?.posted}</div>
+                                        <div onMouseEnter={() => setShowTooltipPosted(true)} onMouseLeave={() => setShowTooltipPosted(false)} ><img src='/static/icons/wall-clock.png' alt='posted' className='detail-icon'></img></div>
+                                        <div class='product-stat'> {product?.posted}</div>
+                                        <div hidden={!showToolTipPosted} className='explain-icon'>Posted</div>
                                     </div>
                                     <div id='one-detail'>
-                                        <div><img src='/static/icons/dollar.png' alt='price' className='detail-icon'></img></div><div class='product-stat'> {product?.price.toFixed(2)} Souls</div>
+                                        <div onMouseEnter={() => setShowTooltipPrice(true)} onMouseLeave={() => setShowTooltipPrice(false)} ><img src='/static/icons/dollar.png' alt='price' className='detail-icon'></img></div>
+                                        <div class='product-stat'> {product?.price.toFixed(2)} Souls</div>
+                                        <div hidden={!showToolTipPrice} className='explain-icon'>Price</div>
                                     </div>
                                     <div id='one-detail'>
-                                        <div><img src='/static/icons/up-arrow.png' alt='scaling' className='detail-icon'></img></div><div class='product-stat'> {product?.scaling_type}</div>
+                                        <div onMouseEnter={() => setShowTooltipScalingType(true)} onMouseLeave={() => setShowTooltipScalingType(false)} ><img src='/static/icons/up-arrow.png' alt='scaling' className='detail-icon'></img></div>
+                                        <div class='product-stat'> {product?.scaling_type}</div>
+                                        <div hidden={!showToolTipScalingType} className='explain-icon'>Scaling</div>
                                     </div>
                                     <div id='one-detail'>
-                                        <div><img src='/static/icons/privacy.png' alt='weapon type' className='detail-icon'></img></div><div class='product-stat'> {product?.weapon_type}</div>
+                                        <div onMouseEnter={() => setShowTooltipWeaponType(true)} onMouseLeave={() => setShowTooltipWeaponType(false)} ><img src='/static/icons/privacy.png' alt='weapon type' className='detail-icon'></img></div>
+                                        <div class='product-stat'> {product?.weapon_type}</div>
+                                        <div hidden={!showToolTipWeaponType} className='explain-icon'>Weapon Type</div>
                                     </div>
                                     {/* TODO: Attribute Icon creators */}
                                 </div>

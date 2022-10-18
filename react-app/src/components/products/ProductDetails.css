@@ -89,5 +89,9 @@ body {
     padding: 3px;
 }
 #stats-container {
-    width: 210px;
+    width: 220px;
+}
+.explain-icon{
+    position: absolute;
+    left: 35%;
 }
