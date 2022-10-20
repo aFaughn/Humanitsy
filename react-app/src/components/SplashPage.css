@@ -1,102 +1,215 @@
-#splash-content-wrapper {
-    display: flex;
-    color: white;
-    font-family: souls;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+/* General desktop environment */
+@media screen and (min-width: 601px) {
+    #splash-content-wrapper {
+        display: flex;
+        color: white;
+        font-family: souls;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    #splash-button-wrapper > div > a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+    #splash-button-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+    #splash-content-wrapper > h3 {
+        padding-bottom: 10px;
+    }
+    #splash-header {
+        font-size: 48px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    #splash-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-color: #776e62;
+        height: 50px;
+        width: 100px;
+        border-radius: 8px;
+        font-size: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border: 1px solid #333;
+        color: white;
+        font-family: souls;
+        transition: 0.3s linear;
+    }
+    #splash-login:hover {
+        background-color: #aaa;
+        cursor: pointer;
+        transition: 0.5s ease;
+        border: 1px solid #aaa;
+    }
+    #about-me-wrapper {
+        height: 100px;
+        margin-top: 10%;
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+    #about-me-wrapper > ul > li {
+        height: 100px;
+        display: flex;
+        justify-content: column;
+        align-items: center;
+        list-style: none;
+        padding-right: 50px;
+    }
+    .gitHub {
+        height: 50px;
+        padding: 5px;
+        margin: 10px;
+        border: 1px solid #181a18;
+        transition: 0.3s linear;
+    }
+    .linkedIn {
+        border: 1px solid #181a18;
+        height: 50px;
+        margin: 10px;
+        padding: 5px;
+        transition: 0.3s linear;
+    }
+    .linkedIn:hover {
+        border: 1px solid #776e62;
+        border-radius: 10px;
+        transition: 0.3s ease;
+    }
+    .gitHub:hover {
+        border: 1px solid #776e62;
+        border-radius: 50px;
+        transition: 0.3s ease;
+    }
+    #modal-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
-#splash-button-wrapper > div > a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-#splash-button-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-}
-#splash-content-wrapper > h3 {
-    padding-bottom: 10px;
-}
-#splash-header {
-    font-size: 48px;
-    margin-top: 10%;
-    margin-bottom: 10%;
-}
-#splash-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: #776e62;
-    height: 50px;
-    width: 100px;
-    border-radius: 8px;
-    font-size: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 1px solid #333;
-    color: white;
-    font-family: souls;
-    transition: 0.3s linear;
-}
-#splash-login:hover {
-    background-color: #aaa;
-    cursor: pointer;
-    transition: 0.5s ease;
-    border: 1px solid #aaa;
-}
-#about-me-wrapper {
-    height: 100px;
-    margin-top: 10%;
-    color: white;
-    display: flex;
-    justify-content: center;
-}
-#about-me-wrapper > ul > li {
-    height: 100px;
-    display: flex;
-    justify-content: column;
-    align-items: center;
-    list-style: none;
-    padding-right: 50px;
-}
-.gitHub {
-    height: 50px;
-    padding: 5px;
-    margin: 10px;
-    border: 1px solid #181a18;
-    transition: 0.3s linear;
-}
-.linkedIn {
-    border: 1px solid #181a18;
-    height: 50px;
-    margin: 10px;
-    padding: 5px;
-    transition: 0.3s linear;
-}
-.linkedIn:hover {
-    border: 1px solid #776e62;
-    border-radius: 10px;
-    transition: 0.3s ease;
-}
-.gitHub:hover {
-    border: 1px solid #776e62;
-    border-radius: 50px;
-    transition: 0.3s ease;
-}
-#modal-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+/* Mobile Device Styling */
+@media screen and (max-width: 600px) {
+    #splash-content-wrapper {
+        display: flex;
+        color: white;
+        font-family: souls;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    #splash-button-wrapper > div > a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+    #splash-button-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+    #splash-content-wrapper > h3 {
+        padding-bottom: 10px;
+    }
+    #splash-header {
+        font-size: 48px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    #splash-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-color: #776e62;
+        height: 50px;
+        width: 100px;
+        border-radius: 8px;
+        font-size: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border: 1px solid #333;
+        color: white;
+        font-family: souls;
+        transition: 0.3s linear;
+    }
+    #splash-login:hover {
+        background-color: #aaa;
+        cursor: pointer;
+        transition: 0.5s ease;
+        border: 1px solid #aaa;
+    }
+    #about-me-wrapper {
+        height: 100px;
+        margin-top: 10%;
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+    #about-me-wrapper > ul > li {
+        height: 100px;
+        display: flex;
+        justify-content: column;
+        align-items: center;
+        list-style: none;
+        padding-right: 50px;
+    }
+    .gitHub {
+        height: 50px;
+        padding: 5px;
+        margin: 10px;
+        border: 1px solid #181a18;
+        transition: 0.3s linear;
+    }
+    .linkedIn {
+        border: 1px solid #181a18;
+        height: 50px;
+        margin: 10px;
+        padding: 5px;
+        transition: 0.3s linear;
+    }
+    .linkedIn:hover {
+        border: 1px solid #776e62;
+        border-radius: 10px;
+        transition: 0.3s ease;
+    }
+    .gitHub:hover {
+        border: 1px solid #776e62;
+        border-radius: 50px;
+        transition: 0.3s ease;
+    }
+    #modal-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #splash-content-wrapper > h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 }
