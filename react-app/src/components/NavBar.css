@@ -66,3 +66,57 @@ nav > ul > li > button:hover {
     height: 35px;
     width: 100px;
 }
+#dropdown-button {
+    height: 15px;
+    width: 20px;
+    padding: 10px;
+    background-color: #181a1b;
+    border-radius: 7px;
+    border: 1px solid #776e62;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+#dropdown-button:hover {
+    background-color: #666;
+    transition: 0.2s ease;
+}
+#dropdown-button > i {
+    font-size: 30px;;
+}
+#dropdown-menu-wrapper {
+    position: fixed;
+    color: white;
+    font-family: souls;
+    background-color: #181a1b;
+    right: 10px;
+    top: 55px;
+    text-align: center;
+    width: 150px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-radius: 7px;
+    border: 1px solid #776e62;
+    transition: 1s ease;
+}
+#dropdown-menu {
+    padding-left: 0px;
+    transition: 0.2s ease;
+}
+.dropdown-item {
+    list-style: none;
+    font-size: 22px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    cursor: pointer;
+}
+.dropdown-item:hover {
+    background-color: #666;
+}
+#dropdown-item-name {
+    background-color: #161819;
+    list-style: none;
+}
