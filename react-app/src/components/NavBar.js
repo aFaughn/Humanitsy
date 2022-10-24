@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useState} from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
@@ -12,6 +12,14 @@ const NavBar = () => {
   const dispatch = useDispatch();
 
   const history = useHistory()
+
+  useEffect(() => {
+    const dropdownNodes = document.querySelectorAll('.dropdown-item')
+    dropdownNodes.forEach(node => (
+        node.addEventListener('click', () => setShowDropdown(false))
+      ))
+  })
+
 
   async function handleClick(e) {
     e.preventDefault();
@@ -39,31 +47,12 @@ const NavBar = () => {
             <li>
               Praise The Sun, {sessionUser.username}
             </li>
-            <li>
-              <div className='navButton'>
-                <NavLink to='/' exact={true} activeClassName='active'>
-                  Home
-                </NavLink>
-              </div>
-            </li>
-            <li>
-              <div className='navButton'>
-                <NavLink to='/products/forms/newproductform' exact={true} activeClassName='active'>
-                  New Product
-                </NavLink>
-              </div>
-            </li>
-            <li>
-              <LogoutButton />
-            </li>
-            <li>
+            <li id='cart-burger'>
               <div id='dropdown-button'>
                 <NavLink to='/cart' exact={true} activeClassName='active'>
                   <i class="fa-solid fa-cart-shopping"></i>
                 </NavLink>
               </div>
-            </li>
-            <li>
               <div id='dropdown-button' onClick={() => showDropdown ? setShowDropdown(false) : setShowDropdown(true)}>
                 <i className='fa-solid fa-bars'></i>
               </div>
@@ -75,10 +64,22 @@ const NavBar = () => {
         <div id='dropdown-menu-wrapper'>
           <ul id='dropdown-menu'>
             <li id='dropdown-item-name'>{sessionUser.username}</li>
-            <li className='dropdown-item'>Home</li>
-            <li className='dropdown-item'>New Product</li>
-            <li className='dropdown-item'>Cart</li>
-            <li className='dropdown-item'>Logout</li>
+            <li className='dropdown-item'>
+              <NavLink to='/' exact={true} activeClassName='active'>
+                  Home
+              </NavLink>
+            </li>
+            <li className='dropdown-item'>
+              <NavLink to='/products/forms/newproductform' exact={true} activeClassName='active'>
+                  New Product
+              </NavLink>
+            </li>
+            <li className='dropdown-item'>
+              Cart
+            </li>
+            <li className='dropdown-item'>
+              <LogoutButton />
+            </li>
           </ul>
         </div>
       )}

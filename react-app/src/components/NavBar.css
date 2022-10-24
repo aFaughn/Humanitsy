@@ -46,21 +46,22 @@ nav > li {
 a {
     text-decoration: none;
 }
-nav > ul > li > button {
+.dropdown-item > button {
     background-color: #181a1b;
     font-family: souls;
     border-radius: 3px;
     color: white;
-    width: 80px;
+    width: 150px;
     height: 30px;
-    border: 1px solid #776e62;
-    margin-right: 10px;
+    border: none;
+    margin-right: 0px;
     font-size: 15px;
-    transition: 0.2s linear;
+    transition: 0.2s ease;
 }
-nav > ul > li > button:hover {
+.dropdown-item > button:hover {
     background-color: #666;
-    transition: 0.2s linear;
+    transition: 0.2s ease;
+    cursor: pointer;
 }
 #demo-login {
     height: 35px;
@@ -119,4 +120,8 @@ nav > ul > li > button:hover {
 #dropdown-item-name {
     background-color: #161819;
     list-style: none;
+}
+#cart-burger {
+    display: flex;
+    flex-direction: row;
 }
