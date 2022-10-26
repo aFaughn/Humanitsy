@@ -140,3 +140,17 @@ a {
     display: flex;
     flex-direction: row;
 }
+/* These only work on chromium based browsers -- If you're using Safari or Chrome, enjoy. and Hi 👋 */
+::-webkit-scrollbar {
+    width: 15px;
+    background: #333;
+}
+::-webkit-scrollbar-track {
+    background: #333;
+}
+::-webkit-scrollbar-thumb {
+    background: #776e62;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
