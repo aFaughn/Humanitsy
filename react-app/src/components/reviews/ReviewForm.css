@@ -6,10 +6,13 @@
     color: white;
     border: 1px solid #776e62;
     font-size: 17px;
+    margin: 7px;
+    transition: 0.2s ease;
 }
 .detail-button:hover {
     background-color: #666;
     cursor: pointer;
+    transition: 0.2s ease;
 }
 .review-rating {
     color: white;

@@ -14,13 +14,6 @@ const NavBar = () => {
 
   const history = useHistory()
 
-  useEffect(() => {
-    const dropdownNodes = document.querySelectorAll('.dropdown-item')
-    dropdownNodes.forEach(node => (
-        node.addEventListener('click', () => setShowDropdown(false))
-      ))
-  },[])
-
   const closeDropdownList = async (e) => {
     return setShowDropdown(false)
   }
@@ -68,22 +61,22 @@ const NavBar = () => {
         <div id='dropdown-menu-wrapper'>
           <ul id='dropdown-menu'>
             { sessionUser && (<li id='dropdown-item-name'>{sessionUser.username}</li> )}
-            <li className='dropdown-item'>
+            <li className='dropdown-item' onClick={() => setShowDropdown(false)}>
               <NavLink to='/' exact={true} activeClassName='active'>
                   Home
               </NavLink>
             </li>
-            <li className='dropdown-item'>
+            <li className='dropdown-item' onClick={() => setShowDropdown(false)}>
               <NavLink to='/products/forms/newproductform' exact={true} activeClassName='active'>
                   New Product
               </NavLink>
             </li>
-            <li className='dropdown-item'>
+            <li className='dropdown-item' onClick={() => setShowDropdown(false)}>
               <NavLink to='/cart' exact={true} activeClassName='active'>
                   Cart
               </NavLink>
             </li>
-            <li className='dropdown-item'>
+            <li className='dropdown-item' onClick={() => setShowDropdown(false)}>
               <LogoutButton setShowDropdown={setShowDropdown}/>
             </li>
           </ul>
