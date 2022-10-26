@@ -86,7 +86,7 @@ function ViewCart() {
                             <h3>How you'll pay</h3>
                             <div id='payment-methods'>
                                 <div>
-                                    <input type='radio' name='IOU' value='IOU' checked/>I.O.U.
+                                    <input type='radio' name='IOU' value='IOU' defaultChecked/>I.O.U.
                                 </div>
                                 <div>
                                     <input type='radio' name='IOU' value='IOU' />Hugs and Kisses

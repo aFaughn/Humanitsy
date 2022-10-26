@@ -64,8 +64,23 @@ a {
     cursor: pointer;
 }
 #demo-login {
-    height: 35px;
+    height: 40px;
     width: 100px;
+    padding: 10px;
+    background-color: #181a1b;
+    border-radius: 7px;
+    border: 1px solid #776e62;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    transition: 0.2s ease;
+    cursor: pointer;
+    color: white;
+}
+#demo-login:hover {
+    background-color: #666;
+    transition: 0.2s ease;
 }
 #dropdown-button {
     height: 15px;

@@ -5,6 +5,7 @@ import LogoutButton from './auth/LogoutButton';
 import { demoLogin } from '../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import './NavBar.css'
+import { faCropSimple } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -18,8 +19,11 @@ const NavBar = () => {
     dropdownNodes.forEach(node => (
         node.addEventListener('click', () => setShowDropdown(false))
       ))
-  })
+  },[])
 
+  const closeDropdownList = async (e) => {
+    return setShowDropdown(false)
+  }
 
   async function handleClick(e) {
     e.preventDefault();
@@ -50,7 +54,7 @@ const NavBar = () => {
             <li id='cart-burger'>
               <div id='dropdown-button'>
                 <NavLink to='/cart' exact={true} activeClassName='active'>
-                  <i class="fa-solid fa-cart-shopping"></i>
+                  <i className="fa-solid fa-cart-shopping"></i>
                 </NavLink>
               </div>
               <div id='dropdown-button' onClick={() => showDropdown ? setShowDropdown(false) : setShowDropdown(true)}>
@@ -63,7 +67,7 @@ const NavBar = () => {
       {showDropdown && (
         <div id='dropdown-menu-wrapper'>
           <ul id='dropdown-menu'>
-            <li id='dropdown-item-name'>{sessionUser.username}</li>
+            { sessionUser && (<li id='dropdown-item-name'>{sessionUser.username}</li> )}
             <li className='dropdown-item'>
               <NavLink to='/' exact={true} activeClassName='active'>
                   Home
@@ -75,10 +79,12 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li className='dropdown-item'>
-              Cart
+              <NavLink to='/cart' exact={true} activeClassName='active'>
+                  Cart
+              </NavLink>
             </li>
             <li className='dropdown-item'>
-              <LogoutButton />
+              <LogoutButton setShowDropdown={setShowDropdown}/>
             </li>
           </ul>
         </div>
