@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {useState} from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { demoLogin } from '../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import './NavBar.css'
-import { faCropSimple } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -13,10 +12,6 @@ const NavBar = () => {
   const dispatch = useDispatch();
 
   const history = useHistory()
-
-  const closeDropdownList = async (e) => {
-    return setShowDropdown(false)
-  }
 
   async function handleClick(e) {
     e.preventDefault();

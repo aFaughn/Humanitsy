@@ -11,7 +11,6 @@ function ViewCart() {
     const history = useHistory();
 
     const userId = useSelector(state => state.session.user?.id)
-    const session = useSelector(state => state.session)
 
     const cart = JSON.parse(localStorage.getItem(`cart_${userId}`))
     const [curCart, setCurCart] = useState(cart)
@@ -41,6 +40,7 @@ function ViewCart() {
     function removeFromCart(id) {
         const newCart = []
         cart.forEach(item => {
+            // Do not change != to !==, it needs to be able to coerce the string to an integer.
             if (cart.indexOf(item) != id) {
                 newCart.push(item)
             }

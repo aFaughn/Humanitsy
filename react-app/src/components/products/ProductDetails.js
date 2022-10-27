@@ -1,8 +1,7 @@
-import react, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory} from 'react-router-dom'
-import { GetProductThunk, DeleteProductThunk, EditProductThunk, GetProductDetailThunk } from '../../store/products'
-import { getReviewsThunk, deleteReviewThunk, editReviewsThunk } from '../../store/reviews'
+import { GetProductThunk, DeleteProductThunk } from '../../store/products'
 import EditProduct from './EditProduct';
 import Reviews from '../reviews/Reviews';
 import ReviewForm from '../reviews/ReviewForm';
@@ -96,7 +95,7 @@ function ProductDetails() {
                         </div>
                         <div id='details-container'>
                             <div className='product-stats'>
-                                <img onError={(e) => e.target.src = '/static/images/backupImage.png'} src={product?.image_url} alt='product image' id='product-image'></img>
+                                <img onError={(e) => e.target.src = '/static/images/backupImage.png'} src={product?.image_url} alt='product' id='product-image'></img>
                                 <div id='details-container'>
                                     <p>Product Stats</p>
                                 </div>
