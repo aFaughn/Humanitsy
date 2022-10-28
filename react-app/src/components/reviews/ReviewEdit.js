@@ -10,7 +10,6 @@ function EditReview() {
     const { reviewId } = useParams();
     const history = useHistory();
     const review = useSelector(state => state.reviews[reviewId]);
-    const [productId, setProductId] = useState(review?.product_id);
     const [errors, setErrors] = useState([]);
     if (review?.product_id) window.localStorage.setItem('reviewProductId', JSON.stringify(review?.product_id))
     if (review?.reviewBody) window.localStorage.setItem('reviewContent', JSON.stringify(review?.reviewBody))

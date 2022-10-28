@@ -16,6 +16,7 @@ function Search() {
                 if (product.name.toLowerCase().includes(e.target.value.toLowerCase()) || product.weapon_type.toLowerCase().includes(e.target.value.toLowerCase())) {
                     return true
                 }
+                return false
             })
         }
         setSearchResults(search)

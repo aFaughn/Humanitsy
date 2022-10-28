@@ -1,20 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { GetProductThunk } from '../../store/products'
 import { getReviewsThunk } from '../../store/reviews'
 
 function TinyReview({productId}) {
     const dispatch = useDispatch()
-    const [sum, setSum] = useState(0)
 
     useEffect(() => {
      dispatch(GetProductThunk())
      dispatch(getReviewsThunk())
     },[dispatch])
-
-    const products = useSelector(state => state.products)
-    const allProducts = Object.values(products)
 
     const reviews = useSelector(state => state.reviews) //Obj
     const allReviews = Object.values(reviews) //Array
