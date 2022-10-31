@@ -59,6 +59,7 @@ function SplashPage() {
               </div>
             </div>
             )}
+            {/* Happy Halloween */}
         </>
     )
 }
