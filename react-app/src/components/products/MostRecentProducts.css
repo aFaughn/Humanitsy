@@ -1,64 +1,134 @@
-a {
-    text-decoration: none;
-    color: white;
+@media screen and (min-width: 601px) {
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    #RecentProductWrapper {
+        margin-left: 15%;
+        margin-right: 15%;
+        font-family: souls;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+    }
+    #RecentProductWrapper > ul {
+        list-style: none;
+        color: white;
+        padding-left: 0px;
+        flex-wrap: wrap;
+    }
+    .product-card > a {
+        color: white;
+    }
+    .product-card-container {
+        display: flex;
+        flex-direction: row;
+    }
+    .card-link {
+        width: 20%;
+    }
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5px;
+        border-bottom: 2px solid #776e62;
+        width: 100%;
+        height: 300px;
+        min-width: 180px;
+        border-radius: 0px;
+        transition: 0.2s ease-out;
+    }
+    .product-card:hover {
+        background-color: #333;
+        cursor: pointer;
+        transition: 0.2s ease-in;
+    }
+    .product-img {
+        height: 200px;
+        width: 130px;
+    }
+    #most-recent-product-banner {
+        color: white;
+        border-bottom: 2px solid #776e62;
+        margin-bottom: 20px;
+    }
+    .search-wrapper {
+        margin-left: 15%;
+        margin-right: 15%;
+        font-family: souls;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
 }
-#RecentProductWrapper {
-    margin-left: 15%;
-    margin-right: 15%;
-    font-family: souls;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-}
-#RecentProductWrapper > ul {
-    list-style: none;
-    color: white;
-    padding-left: 0px;
-    flex-wrap: wrap;
-}
-.product-card > a {
-    color: white;
-}
-.product-card-container {
-    display: flex;
-    flex-direction: row;
-}
-.card-link {
-    width: 20%;
-}
-.product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5px;
-    border-bottom: 2px solid #776e62;
-    width: 100%;
-    height: 300px;
-    min-width: 180px;
-    border-radius: 0px;
-    transition: 0.2s ease-out;
-}
-.product-card:hover {
-    background-color: #333;
-    cursor: pointer;
-    transition: 0.2s ease-in;
-}
-.product-img {
-    height: 200px;
-    width: 130px;
-}
-#most-recent-product-banner {
-    color: white;
-    border-bottom: 2px solid #776e62;
-    margin-bottom: 20px;
-}
-.search-wrapper {
-    margin-left: 15%;
-    margin-right: 15%;
-    font-family: souls;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
+@media screen and (max-width: 600px) {
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    #RecentProductWrapper {
+        font-family: souls;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+    }
+    #RecentProductWrapper > ul {
+        list-style: none;
+        color: white;
+        padding-left: 0px;
+        flex-wrap: wrap;
+    }
+    .product-card > a {
+        color: white;
+    }
+    .product-card-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .card-link {
+        width: 20%;
+    }
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5px;
+        border-bottom: 2px solid #776e62;
+        width: 100%;
+        height: 300px;
+        min-width: 180px;
+        border-radius: 0px;
+        transition: 0.2s ease-out;
+    }
+    .product-card:hover {
+        background-color: #333;
+        cursor: pointer;
+        transition: 0.2s ease-in;
+    }
+    .product-img {
+        height: 200px;
+        width: 130px;
+    }
+    #most-recent-product-banner {
+        color: white;
+        border-bottom: 2px solid #776e62;
+        margin-bottom: 20px;
+    }
+    .search-wrapper {
+        margin-left: 15%;
+        margin-right: 15%;
+        font-family: souls;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .product-card-container > a {
+        width: 200px;
+    }
 }
