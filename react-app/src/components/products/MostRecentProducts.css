@@ -1,4 +1,4 @@
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 768px) {
     a {
         text-decoration: none;
         color: white;
@@ -64,7 +64,7 @@
         margin-bottom: 10px;
     }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
     a {
         text-decoration: none;
         color: white;
