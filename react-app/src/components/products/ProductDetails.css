@@ -2,96 +2,200 @@
     font-family: 'souls';
     src: local('CrimsonText-Regular'), url(../../fonts/CrimsonText-Regular.ttf) format('truetype');
 }
-body {
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(24,26,27,1) 15%, rgba(24,26,27,1) 85%, rgba(0,0,0,1) 100%);
+@media screen and (min-width: 601px) {
+    body {
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(24,26,27,1) 15%, rgba(24,26,27,1) 85%, rgba(0,0,0,1) 100%);
+    }
+    .font-souls {
+        font-family: souls;
+        margin-top: 0px;
+    }
+    #details-component-wrapper {
+        margin-left: 20%;
+        margin-right: 20%;
+        font-family: souls;
+    }
+    #details-component-wrapper > div {
+        margin-bottom: 15px;
+    }
+    #title-wrapper {
+        color: #F0EAE6;
+        border-bottom: 1px solid #776e62;
+    }
+    #product-image {
+        height: 257px;
+        width: 189px;
+    }
+    .product-stats {
+        color: white;
+        font-size: 20px;
+        width: 600px;
+    }
+    #details-container {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid #776e62;
+    }
+    #description-container {
+        margin-top: 10px;
+        color: white;
+        margin-left: 0px;
+        width: 500px;
+    }
+    .detail-button {
+        font-family: souls;
+        background-color: #333;
+        border-radius: 5px;
+        width: 150px;
+        color: white;
+        border: 1px solid #776e62;
+        font-size: 17px;
+    }
+    .detail-button:hover {
+        background-color: #666;
+        cursor: pointer;
+    }
+    .add-to-cart {
+        margin-top: 15px;
+        font-family: souls;
+        background-color: #333;
+        border-radius: 5px;
+        width: 150px;
+        color: white;
+        border: 1px solid #776e62;
+        font-size: 17px;
+    }
+    .add-to-cart:hover {
+        background-color: #666;
+        cursor: pointer;
+    }
+    .add-to-cart:focus {
+        box-shadow: 0px 0px 20px #b87d1f;
+        transition: all 1s;
+    }
+    #one-detail {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    #one-detail > div {
+        width: 250px;
+    }
+    .detail-icon {
+        height: 30px;
+        background-color: #bbb;
+        border: 2px solid #666;
+        border-radius: 10px;
+        padding: 3px;
+    }
+    #stats-container {
+        width: 220px;
+    }
+    .explain-icon{
+        position: absolute;
+        left: 35%;
+    }
 }
-.font-souls {
-    font-family: souls;
-    margin-top: 0px;
-}
-#details-component-wrapper {
-    margin-left: 20%;
-    margin-right: 20%;
-    font-family: souls;
-}
-#details-component-wrapper > div {
-    margin-bottom: 15px;
-}
-#title-wrapper {
-    color: #F0EAE6;
-    border-bottom: 1px solid #776e62;
-}
-#product-image {
-    height: 257px;
-    width: 189px;
-}
-.product-stats {
-    color: white;
-    font-size: 20px;
-    width: 600px;
-}
-#details-container {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid #776e62;
-}
-#description-container {
-    margin-top: 10px;
-    color: white;
-    margin-left: 0px;
-    width: 500px;
-}
-.detail-button {
-    font-family: souls;
-    background-color: #333;
-    border-radius: 5px;
-    width: 150px;
-    color: white;
-    border: 1px solid #776e62;
-    font-size: 17px;
-}
-.detail-button:hover {
-    background-color: #666;
-    cursor: pointer;
-}
-.add-to-cart {
-    margin-top: 15px;
-    font-family: souls;
-    background-color: #333;
-    border-radius: 5px;
-    width: 150px;
-    color: white;
-    border: 1px solid #776e62;
-    font-size: 17px;
-}
-.add-to-cart:hover {
-    background-color: #666;
-    cursor: pointer;
-}
-.add-to-cart:focus {
-    box-shadow: 0px 0px 20px #b87d1f;
-    transition: all 1s;
-}
-#one-detail {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-#one-detail > div {
-    width: 250px;
-}
-.detail-icon {
-    height: 30px;
-    background-color: #bbb;
-    border: 2px solid #666;
-    border-radius: 10px;
-    padding: 3px;
-}
-#stats-container {
-    width: 220px;
-}
-.explain-icon{
-    position: absolute;
-    left: 35%;
+@media screen and (max-width: 600px) {
+    body {
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(24,26,27,1) 15%, rgba(24,26,27,1) 85%, rgba(0,0,0,1) 100%);
+    }
+    .font-souls {
+        font-family: souls;
+        margin-top: 0px;
+    }
+    #details-component-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align:  center;
+        font-family: souls;
+    }
+    #details-component-wrapper > div {
+        margin-bottom: 15px;
+        width: 90%;
+    }
+    #title-wrapper {
+        color: #F0EAE6;
+        border-bottom: 1px solid #776e62;
+    }
+    #product-image {
+        height: 257px;
+        width: 189px;
+    }
+    .product-stats {
+        color: white;
+        font-size: 20px;
+        width: 600px;
+    }
+    #details-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-bottom: 1px solid #776e62;
+    }
+    #description-container {
+        margin-top: 10px;
+        color: white;
+        margin-left: 0px;
+        width: 500px;
+    }
+    .detail-button {
+        font-family: souls;
+        background-color: #333;
+        border-radius: 5px;
+        width: 150px;
+        color: white;
+        border: 1px solid #776e62;
+        font-size: 17px;
+    }
+    .detail-button:hover {
+        background-color: #666;
+        cursor: pointer;
+    }
+    .add-to-cart {
+        margin-top: 15px;
+        font-family: souls;
+        background-color: #333;
+        border-radius: 5px;
+        width: 150px;
+        color: white;
+        border: 1px solid #776e62;
+        font-size: 17px;
+    }
+    .add-to-cart:hover {
+        background-color: #666;
+        cursor: pointer;
+    }
+    .add-to-cart:focus {
+        box-shadow: 0px 0px 20px #b87d1f;
+        transition: all 1s;
+    }
+    #one-detail {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    #one-detail > div {
+        width: 250px;
+    }
+    .detail-icon {
+        height: 30px;
+        background-color: #bbb;
+        border: 2px solid #666;
+        border-radius: 10px;
+        padding: 3px;
+    }
+    #stats-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .explain-icon{
+        position: absolute;
+        left: 35%;
+    }
 }
