@@ -16,7 +16,8 @@ WEAPON_TYPES = ['Greatsword',
                 'Curved-Sword',
                 'Whip',
                 'Throwable',
-                'Halberd']
+                'Halberd',
+                'Ring']
 
 SCALING_TYPES = [
     'Dexterity',
@@ -26,7 +27,8 @@ SCALING_TYPES = [
     'Faith',
     'DEX & FAI',
     'DEX & INT',
-    'All'
+    'All',
+    'None'
 ]
 
 
