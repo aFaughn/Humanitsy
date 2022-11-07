@@ -142,7 +142,7 @@ function ProductDetails() {
                     <div>
                         {session.user && product && product.seller_id === userId && (
                             <div id='owner_buttons'>
-                                <button className='detail-button' onClick={handleDelete}>Delete</button>
+                                <button  id='detail-button-del' className='detail-button' onClick={handleDelete}>Delete</button>
                                 <button className='detail-button' onClick={handleEdit}>Edit</button>
                             </div>
                         )}

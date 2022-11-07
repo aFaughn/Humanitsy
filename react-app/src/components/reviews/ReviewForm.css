@@ -17,12 +17,14 @@
 .review-rating {
     color: white;
     font-family: souls;
+    display: flex;
+    flex-direction: row;
 }
 .review-rating > input {
     background-color: #333;
     font-family: souls;
     font-size: 25px;
-    width: 30px;
+    width: 30px
 }
 #new-review-form {
     display: flex;
@@ -42,4 +44,23 @@
     color: red;
     text-decoration: underline;
     font-size: 18px;
+}
+.rate-product-button {
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+    border-radius: 40px;
+    border: 1px solid #776e62;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    transition: 0.2 ease;
+}
+.rate-product-button:hover {
+    background-color: #776e62;
+    cursor: pointer;
+    transition: 0.2s ease;
 }

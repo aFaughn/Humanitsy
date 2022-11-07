@@ -13,7 +13,6 @@ function ReviewForm({ productId, hide }) {
     function onClick() {
         hide()
     }
-
     async function onSubmit(e) {
         e.preventDefault();
 
@@ -43,7 +42,7 @@ function ReviewForm({ productId, hide }) {
 
     return (
         <div className='review-form'>
-            <form id='new-review-form' onSubmit={onSubmit}>
+            <form id='new-review-form' key={hide} onSubmit={onSubmit}>
                 <div>
                     {errors.length > 0 && errors.map(error =>
                         <div key={error} className="review-error">{error}</div>
@@ -53,7 +52,12 @@ function ReviewForm({ productId, hide }) {
                     <textarea className='review-content' name='content' value={content} placeholder="Bearer of the curse,- seek- seek- lest-" onChange={e => setContent(e.target.value)}></textarea>
                 </div>
                 <div className='review-rating'>
-                    <p>Rating: </p><input required type='number' className='review-rating' name='rating' onChange={e => setRating(e.target.value)}></input>
+                    {/* Todo: Make clicking a rating button display what is currently selected. */}
+                    <input type='radio' className='rate-product-button'></input>
+                    <input type='radio' className='rate-product-button'></input>
+                    <input type='radio' className='rate-product-button'></input>
+                    <input type='radio' className='rate-product-button'></input>
+                    <input type='radio' className='rate-product-button'></input>
                 </div>
                 <div className='review-actions'>
                     <button className='detail-button' type='submit' disabled={errors.length === 0 ? false : true}>Submit</button>

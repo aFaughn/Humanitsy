@@ -37,7 +37,8 @@ function NewProductForm() {
         'Curved-Sword',
         'Whip',
         'Throwable',
-        'Halberd'
+        'Halberd',
+        'Ring'
     ]
     const scaling_type_options = [
         'Dexterity',
