@@ -80,6 +80,7 @@ function ProductDetails() {
         let curCart = JSON.parse(localStorage.getItem(`cart_${userId}`))
         curCart.push(product);
         localStorage.setItem(`cart_${userId}`, JSON.stringify(curCart));
+        console.log(curCart);
     }
 
         return (
