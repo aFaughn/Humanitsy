@@ -3,8 +3,6 @@ from app.forms.product_form import NewProductForm
 from app.models import Product, db
 from app.models.user import User
 from sqlalchemy import func
-import os
-environment = os.getenv('FLASK_ENV')
 
 product_router = Blueprint('products',__name__)
 
@@ -53,7 +51,7 @@ def new_product():
             image_url = form.data['image_url'],
             posted = func.now()
         )
-    if form.errors and environment != 'production':
+    if form.errors:
         print(form.errors)
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
     db.session.add(product)
@@ -92,7 +90,7 @@ def editProduct(productId):
         product.image_url = form.data['image_url']
         product.posted = func.now()
 
-    if form.errors and environment != 'production':
+    if form.errors:
         print(form.errors)
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
