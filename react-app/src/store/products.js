@@ -103,7 +103,7 @@ export const DeleteProductThunk = (id) => async (dispatch) => {
         dispatch(deleteProduct(data))
         return data
     } else {
-        console.log({ "message": "Failed: Unsuccessful delete" })
+        response.JSON({ "message": "Failed: Unsuccessful delete" })
     }
 }
 

@@ -22,8 +22,6 @@ function EditReview() {
        await dispatch(GetProductThunk())
     },[dispatch])
 
-    console.log(reviewId, review, content, rating);
-
     function onClick() {
         history.push(`/products/${review.product_id ? review.product_id : JSON.parse(window.localStorage.getItem('reviewProductId'))}`);
     };
@@ -37,7 +35,6 @@ function EditReview() {
         };
         const editedReview = await dispatch(editReviewsThunk(review));
         if (editedReview) {
-            console.log(review?.product_id)
             history.push(`/products/${JSON.parse(window.localStorage.getItem('reviewProductId'))}`);
         };
     };
