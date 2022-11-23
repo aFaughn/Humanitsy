@@ -45,7 +45,6 @@ function ViewCart() {
                 newCart.push(item)
             }
         })
-        console.log(newCart, id)
         localStorage.setItem(`cart_${userId}`,JSON.stringify(newCart))
         setCurCart(newCart)
     }
