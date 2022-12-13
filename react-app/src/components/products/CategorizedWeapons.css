@@ -22,3 +22,9 @@
     transition: .2s ease;
     border: 1px solid #776e62;
 }
+#cat-scroll {
+    list-style: none;
+    font-size: 30px;
+    color: white;
+    margin-top: 8px;
+}
