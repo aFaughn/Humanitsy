@@ -1,9 +1,12 @@
 #categories-ul {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 100%;
     justify-content: space-between;
     padding-left: 0px;
+}
+#categories-wrapper {
+    width: 100%;
 }
 #category-section-title {
     display: flex;

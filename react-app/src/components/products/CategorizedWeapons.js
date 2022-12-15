@@ -25,7 +25,7 @@ function CategorizedWeapons() {
 
 
     return (
-        <div>
+        <div id='categories-wrapper'>
             <div id='cat-container'>
                 <h1 id='category-section-title'>Product Categories</h1>
                 <ul id='categories-ul'>
