@@ -48,7 +48,7 @@ function MostRecentProducts() {
               <Search/>
           </div>
           <div id='RecentProductWrapper'>
-            <CategorizedWeapons/>;
+            <CategorizedWeapons/>
             <h1 id='most-recent-product-banner'>Most Recent Products</h1>
             <ul className='product-card-container'>
               {allProducts && allReviews &&allProducts.map(product => (
