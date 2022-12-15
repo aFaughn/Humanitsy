@@ -8,6 +8,7 @@
     color: white;
 }
 .category-listing {
+    text-align: center;
     color: white;
     list-style: none;
     margin: 10px;
@@ -15,6 +16,9 @@
     padding: 5px;
     border-radius: 15px;
     border: 1px solid #333;
+    max-height: 20px;
+    max-width: 200px;
+    min-width: 10vim;
 }
 .category-listing:hover {
     background-color: #333;
