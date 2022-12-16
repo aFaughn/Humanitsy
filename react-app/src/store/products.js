@@ -1,5 +1,6 @@
 const GET_PRODUCTS = '/get/products'
 const GET_PRODUCT = '/get/product/detail'
+const GET_FILTERED_PRODUCTS = '/get/product/cat/'
 const SEARCH_PRODUCTS = '/get/searchProducts'
 const CREATE_PRODUCT = '/post/product'
 const EDIT_PRODUCT = '/edit/product'
@@ -14,6 +15,11 @@ const getProduct = (product) => ({
     type: GET_PRODUCT,
     product
 });
+
+const getFilteredProduct = (category) => ({
+    type: GET_FILTERED_PRODUCTS,
+    category
+})
 
 const createProduct = (product) => ({
     type: CREATE_PRODUCT,
@@ -57,6 +63,18 @@ export const GetProductDetailThunk = (id) => async (dispatch) => {
     }
 
 }
+
+export const GetFilteredProductThunk = (cat) => async (dispatch) => {
+    const response = await fetch(`/api/products/cat/${cat}`)
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(getFilteredProduct(data))
+        return data
+    } else {
+        return {'Message':`Failed: Could not fetch filtered products by category: ${cat}`}
+    }
+}
+
 export const CreateProductThunk = (product) => async (dispatch) => {
     const response = await fetch(`/api/products/new`, {
         method: "POST",
@@ -135,6 +153,11 @@ const products = (state = initialState, action) => {
             const new_State = {}
             new_State[action.product.id] = action.product
             return new_State;
+
+        case GET_FILTERED_PRODUCTS:
+            newState = {}
+            new_State[action.product.id] = action.product
+            return newState;
 
         case CREATE_PRODUCT:
             newState[action.product.id] = action.product

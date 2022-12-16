@@ -1,7 +1,7 @@
 #categories-ul {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 80%;
     justify-content: space-between;
     padding-left: 0px;
 }

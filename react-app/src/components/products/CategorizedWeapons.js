@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
 
 /*
 Scroll buttons:
@@ -14,14 +15,26 @@ TODO: Media Query: When screen size is less than 600px, reduce or shorten catego
 */
 
 function CategorizedWeapons() {
+    const dispatch = useDispatch();
 
     const [catScroll, setCatScroll] = useState(0);
+    //Store the active category
+    const [selectedCat, setSelectedCat] = useState('');
+    //Store all items returned from category selection -> Map them in JSX
+    const [filteredItems, setFilteredItems] = useState([]);
+    //Randomized Key value to play CSS animations on scroll
+    const [randomKey, setRandomKey] = useState(Math.random());
 
+    //Handles the dynamic rendering of filtered products
+    useEffect(() => {
+        // Dispatch thunk in store/products.js to fetch all weapons returned from selectedCat
+        // Store weapons as filteredItems state
+    },[/* Watch selectedCat*/])
 
     const categories = [
-                        ['Greatsword','Straight-Sword','Bow','Dagger','Hammer','Gauntlet'],
-                        ['Axe','Spear','Katana','Curved-Sword','Whip','Throwable'],
-                        ['Ring', 'Halberd']]
+                        ['Greatsword','Straight-Sword','Bow','Dagger','Hammer'],
+                        ['Axe','Spear','Katana','Curved-Sword','Gauntlet'],
+                        ['Ring', 'Halberd', 'Throwable','Whip']]
 
 
     return (
