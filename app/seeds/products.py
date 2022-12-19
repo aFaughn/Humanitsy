@@ -37,8 +37,8 @@ def seed_products():
         seller_id=3, name='Dragonrider\'s Bow', price=7000, description='Longbow of the Dragonriders, who served the Old King of Want. \n The Dragonriders were the Old King\'s royal guard, and great strength was demanded of them. Merely drawing this bow calls for inhuman strength. The worthy few who can master this bow, however, use it to devastating effect.', weapon_type='Bow', base_damage=110, scaling_type='Dexterity', can_be_buffed=False, posted=datetime.now(), image_url='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/dragonrider_bow.png'
     )
     #Dagger
-    AmD = Product (
-        seller_id=3, name='Aquamarine Dagger', price=4500, description='A dagger fitted with aquamarine crystal. \n Engraved with a prayer in the old tongue to ward off incident. Perhaps it was a parting gift given to one sent off on great travels.', weapon_type='Dagger', base_damage=67, scaling_type="DEX & INT", can_be_buffed=False, posted=datetime.now(), image_url='https://static.wikia.nocookie.net/darksouls/images/d/df/Aquamarine_Dagger.png/revision/latest?cb=20171103064449'
+    RgD = Product (
+        seller_id=3, name='Rotten Ghru Dagger', price=400, description='A crude dagger made of bone, mud, and decaying remains of an animal it was crudely stripped of. Inflicts poison.', weapon_type='Dagger', base_damage=67, scaling_type="Dexterity", can_be_buffed=False, posted=datetime.now(), image_url='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/rotten_ghru_dagger.png'
     )
     #Axe
     DsGa = Product (
@@ -78,7 +78,7 @@ def seed_products():
     db.session.add(eGreatsword)
     db.session.add(lgh)
     db.session.add(DrB)
-    db.session.add(AmD)
+    db.session.add(RgD)
     db.session.add(DsGa)
     db.session.add(Si)
     db.session.add(Uchigatana)
