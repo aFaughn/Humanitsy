@@ -64,13 +64,6 @@ def singleProduct(productId):
     product = Product.query.get(productId)
     return product.to_dict()
 
-#GET all products matching their category
-@product_router.route('/cat/<cat_type>')
-def categorizedProduct(cat_type):
-    product = Product.query.filter_by(weapon_type=cat_type).all()
-    #Needed to append the .all() as well as call to_dict() on the actual Model Obj and no the list returned by the query.
-    return {prod.id:prod.to_dict() for prod in product}
-
 #DELETEs an individual product
 @product_router.route('/<productId>/delete', methods=['DELETE'])
 def deleteProduct(productId):
@@ -78,7 +71,6 @@ def deleteProduct(productId):
     db.session.delete(product)
     db.session.commit()
     return product.to_dict()
-
 
 #PUT updated info to a product
 @product_router.route('/<productId>/edit', methods=['PUT'])

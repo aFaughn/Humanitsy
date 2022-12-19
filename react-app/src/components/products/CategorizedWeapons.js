@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { GetFilteredProductThunk } from '../../store/categories';
 
 /*
 Scroll buttons:
@@ -28,8 +29,9 @@ function CategorizedWeapons() {
     //Handles the dynamic rendering of filtered products
     useEffect(() => {
         // Dispatch thunk in store/products.js to fetch all weapons returned from selectedCat
+        dispatch(GetFilteredProductThunk(selectedCat))
         // Store weapons as filteredItems state
-    },[/* Watch selectedCat*/])
+    },[dispatch, selectedCat])
 
     const categories = [
                         ['Greatsword','Straight-Sword','Bow','Dagger','Hammer'],
@@ -44,14 +46,14 @@ function CategorizedWeapons() {
                 <ul id='categories-ul'>
                     <li id='cat-scroll'><FontAwesomeIcon icon={faArrowLeft} onClick={() => catScroll === 0 ? setCatScroll(categories.length - 1) : setCatScroll(catScroll - 1)}/></li>
                     {categories[catScroll].map(item => (
-                        <li className='category-listing'>{item}</li>
+                        <li className='category-listing' onClick={(e) => setSelectedCat(item.toLowerCase())}>{item}</li>
                         ))}
                     <li id='cat-scroll'><FontAwesomeIcon icon={faArrowRight} onClick={() => catScroll === categories.length - 1 ? setCatScroll(0) : setCatScroll(catScroll + 1)}/></li>
                 </ul>
             </div>
             <div id='filtered-prod-container'>
                     <div id='filt-card-container'>
-                        <p style={{color: 'white'}}>!PLACEHOLDER! Query for products by category selected, map them here.</p>
+                        <p style={{color: 'white'}}>{selectedCat}</p>
                         <p style={{color: 'white'}}>More seed data might work well here :P</p>
                     </div>
             </div>
