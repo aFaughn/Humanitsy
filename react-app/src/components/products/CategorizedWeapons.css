@@ -26,6 +26,9 @@
     max-width: 200px;
     min-width: 110px;
 }
+.category-listing:active {
+    background-color: #666;
+}
 .category-listing:hover {
     background-color: #333;
     cursor: pointer;
@@ -51,4 +54,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+#cat-weapons-ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: ease 2s;
 }

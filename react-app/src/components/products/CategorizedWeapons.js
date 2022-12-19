@@ -24,8 +24,6 @@ function CategorizedWeapons() {
     const [selectedCat, setSelectedCat] = useState('');
     //Store all items returned from category selection -> Map them in JSX
     const [filteredItems, setFilteredItems] = useState([]);
-    //Randomized Key value to play CSS animations on scroll
-    const [randomKey, setRandomKey] = useState(Math.random());
 
     //Handles the dynamic rendering of filtered products
     useEffect(() => {
@@ -34,14 +32,25 @@ function CategorizedWeapons() {
         // Store weapons as filteredItems state
     },[dispatch, selectedCat])
 
+    // Grabs user ID's to display in Product preview
+    useEffect(() => {
+        async function fetchData() {
+          const response = await fetch('/api/users/');
+          const responseData = await response.json();
+          setUsers(responseData.users);
+        }
+        fetchData();
+      }, [dispatch]);
+
+    //2d Array for the scroller to map from
     const categories = [
                         ['Greatsword','Straight-Sword','Bow','Dagger','Hammer'],
                         ['Axe','Spear','Katana','Curved-Sword','Gauntlet'],
                         ['Ring', 'Halberd', 'Throwable','Whip']]
 
+    // Grabs filtered products from state.
     const filtered_prod = useSelector(state => state.category)
     const allFilteredProd = Object.values(filtered_prod)
-
 
     return (
         <div id='categories-wrapper'>
@@ -57,7 +66,7 @@ function CategorizedWeapons() {
             </div>
             <div id='filtered-prod-container'>
                     <div id='filt-card-container'>
-                        <ul>
+                        <ul id='cat-weapons-ul'>
                         {allFilteredProd && allFilteredProd.map(product => (
                             <Link to={`/products/${product.id}`} className='card-link'>
                             <div key={product.id} className='product-card'>
