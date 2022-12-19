@@ -22,6 +22,7 @@ const categories = (state = initialState, action) => {
     switch (action.type) {
         case GET_FILTERED_PRODUCTS:
             //API returns an array of objects representing products, this line creates a Key/Val pair using the Id and the obj.
+            newState = {}
             action.category.forEach(product => newState[product.id] = product)
             return newState;
         default:
