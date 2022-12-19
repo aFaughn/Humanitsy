@@ -60,6 +60,14 @@ def seed_products():
     FaP = Product (
         seller_id=3, name='Ring of Favor', price=6000, description="A ring symbolizing the favor of the Goddess Fina, whose 'fateful beauty' is mentioned in legend. \n True to the fickle nature of Fina's favor, her ring increases max HP, stamina, and maximum equip load, but shatters if unequipped", weapon_type="Ring", base_damage=1, scaling_type='None', can_be_buffed=False, posted=datetime.now(), image_url="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/ring_of_favor.png"
     )
+    #Throwable
+    BfB = Product (
+        seller_id=1, name="Black Firebomb", price=80, description="A bisque urn filled with special black powder. Explodes, inflicting great fire damage.", weapon_type='Throwable', base_damage=100, scaling_type='Strength', can_be_buffed=False, posted=datetime.now(), image_url="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/black_firebomb.png"
+    )
+    #Whip
+    RoA = Product (
+        seller_id=3, name='Rose of Ariandel', price=8000, description="A flail used by the bulbous Father of the Painted World to shred his own skin, producing blood to appease the flame. Both a weapon and a miracle catalyst. \n Ariandel, being the restorer of the Painted World, knew that it was painted with blood, and only blood could protect the secret.", weapon_type='Whip', base_damage=79, scaling_type="Faith", can_be_buffed=True, posted=datetime.now(), image_url="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/rose_of_ariandel_-_final.png"
+    )
 
 
     db.session.add(demo)
@@ -76,6 +84,8 @@ def seed_products():
     db.session.add(Uchigatana)
     db.session.add(CrowTalons)
     db.session.add(FaP)
+    db.session.add(BfB)
+    db.session.add(RoA)
 
     db.session.commit()
 
