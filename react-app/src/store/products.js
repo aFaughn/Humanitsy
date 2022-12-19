@@ -57,6 +57,7 @@ export const GetProductDetailThunk = (id) => async (dispatch) => {
     }
 
 }
+
 export const CreateProductThunk = (product) => async (dispatch) => {
     const response = await fetch(`/api/products/new`, {
         method: "POST",

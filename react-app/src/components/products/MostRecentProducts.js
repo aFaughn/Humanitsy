@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { GetProductThunk } from '../../store/products'
 import { getReviewsThunk } from '../../store/reviews'
+import CategorizedWeapons from './CategorizedWeapons';
 import TinyReview from '../reviews/TinyReview'
 import Search from '../search/Search';
 import './MostRecentProducts.css'
@@ -47,6 +48,7 @@ function MostRecentProducts() {
               <Search/>
           </div>
           <div id='RecentProductWrapper'>
+            <CategorizedWeapons/>
             <h1 id='most-recent-product-banner'>Most Recent Products</h1>
             <ul className='product-card-container'>
               {allProducts && allReviews &&allProducts.map(product => (
