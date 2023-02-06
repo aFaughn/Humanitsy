@@ -72,7 +72,6 @@ def deleteProduct(productId):
     db.session.commit()
     return product.to_dict()
 
-
 #PUT updated info to a product
 @product_router.route('/<productId>/edit', methods=['PUT'])
 def editProduct(productId):
