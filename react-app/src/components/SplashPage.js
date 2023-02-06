@@ -22,7 +22,17 @@ function SplashPage() {
     return (
         <>
             <div id='splash-content-wrapper'>
-                <h1 id='splash-header'>Welcome to Humanitsy</h1>
+                <h1 id='splash-header'>Humanitsy</h1>
+                <div id='weapon-spin-wrapper'>
+                    <div id='weapon-spin-container'>
+                        <div id='weapon-spin-image-container'>
+                            <img class='weapon-image' id='wimg1' src='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/zweihander.png'/>
+                            <img class='weapon-image' id='wimg2' src='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/morion_blade.png'/>
+                            <img class='weapon-image' id='wimg3' src='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/exile_greatsword.png'/>
+                            <img class='weapon-image' id='wimg4' src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/ledo's_great_hammer.png"/>
+                        </div>
+                    </div>
+                </div>
                 <h2>A Place where Unkindled, Maidenless Tarnished, and Wretched Hollows can find their tools of trade.</h2>
                 <h3>To continue, please either</h3>
                 <div id='splash-button-wrapper'>
