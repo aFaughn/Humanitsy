@@ -110,36 +110,44 @@
     #weapon-spin-wrapper {
         height: 300px;
         width: 300px;
+        /* border: 1px solid white; */
         animation: spin 5s linear infinite;
+    }
+    #weapon-spin-container {
+        height: 300px;
+        width: 300px;
     }
     #weapon-spin-image-container {
         display: grid;
-        grid-template-columns: 80% 80%;
-        grid-template-rows: 80% 80%;
-        height: 200px;
-        width: 200px;
+        grid-template-columns: 150px 150px;
+        grid-template-rows: 150px 150px;
+        height: 300px;
+        width: 300px;
     }
     .weapon-image {
         height: 130px;
     }
     #wimg1 {
-        rotate: 225deg;
+        /* rotate: 225deg; */
         grid-column-start: 0;
-    }
+        animation: carousel 5s linear infinite;    }
     #wimg2 {
-        rotate: 45deg;
+        /* rotate: 45deg; */
         grid-column-start: 2;
         grid-row-start: 1;
+        animation: carousel 5s linear infinite;
     }
     #wimg3 {
-        rotate: -45deg;
+        /* rotate: -45deg; */
         grid-column-start: 0;
         grid-row-start: 1;
+        animation: carousel 5s linear infinite;
     }
     #wimg4 {
-        rotate: 135deg;
+        /* rotate: 135deg; */
         grid-column-start: 2;
         grid-row-start: 2;
+        animation: carousel 5s linear infinite;
     }
 }
 
@@ -259,5 +267,13 @@
     }
     to {
         transform: rotate(360deg);
+    }
+}
+@keyframes carousel {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: -360deg;
     }
 }
