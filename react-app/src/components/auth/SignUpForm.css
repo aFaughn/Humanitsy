@@ -49,14 +49,15 @@
     padding: 0px;
     margin: 0px;
     margin-top: 5px;
-    background-color: red;
+    background-color: #666;
     border: none;
-    color: white;
+    color: #ddd;
     cursor: pointer;
     left: 200px;
+    border-radius: 50px;
 }
 #close-signup-modal:hover {
-    background-color: #f44;
+    background-color: #888;
 }
 #errors {
     height: 100px;
