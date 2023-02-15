@@ -21,6 +21,14 @@ function SplashPage() {
 
     return (
         <>
+        <div id='flybox'>
+            <img  id='fly1' src='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/old_wolf_curved_sword.png' class='flyby-image'/>
+            <img  id='fly2' src='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/brigand_twindaggers.png' class='flyby-image'/>
+            <img  id='fly3' src='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/dragonslayer_greataxe.png' class='flyby-image'/>
+            <img  id='fly4' src='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/black_knight_sword.png' class='flyby-image'/>
+            <img  id='fly5' src='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/ring_of_favor.png' class='flyby-image'/>
+            <img  id='fly6' src='https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/black_firebomb.png' class='flyby-image'/>
+        </div>
             <div id='splash-content-wrapper'>
                 <h1 id='splash-header'>Humanitsy</h1>
                 <div id='weapon-spin-wrapper'>
@@ -69,6 +77,7 @@ function SplashPage() {
               </div>
             </div>
             )}
+            <div id='disable-animation'>Disable CSS Animation</div>
         </>
     )
 }
