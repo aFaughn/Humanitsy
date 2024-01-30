@@ -6,6 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import EditReview from './components/reviews/ReviewEdit'
+import Footer from './components/Footer.js'
 import { authenticate } from './store/session';
 
 import MostRecentProducts from './components/products/MostRecentProducts.js';
@@ -68,6 +69,7 @@ function App() {
 
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
