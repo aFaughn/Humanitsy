@@ -16,6 +16,6 @@ def validation_errors_to_error_messages(validation_errors):
 #GET all products matching their category
 @category_router.route('/<cat_type>')
 def categorizedProduct(cat_type):
-    product = Product.query.filter_by(weapon_type=cat_type).all()
+    product = db.session.scalar(db.select(Product).filter_by(weapon_type=cat_type)).all()
     #Needed to append the .all() as well as call to_dict() on the actual Model Obj and no the list returned by the query.
     return {"products": [prod.to_dict() for prod in product] }
